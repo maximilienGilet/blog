@@ -10,7 +10,8 @@ import SupportIcon from "../components/icons/SupportIcon.astro";
 
 const features = [
   {
-    title: "Tu veux coder comme un pro ?",
+    title: "Maîtrise technique",
+    subtitle: "Code comme un senior",
     items: [
       "Maîtrise TypeScript",
       "Clean Architecture",
@@ -19,7 +20,8 @@ const features = [
     ],
   },
   {
-    title: "Envie d'être plus efficace ?",
+    title: "Soft skills",
+    subtitle: "Gagne en impact et en efficacité",
     items: [
       "Communication efficace",
       "Gestion du temps optimale",
@@ -28,7 +30,8 @@ const features = [
     ],
   },
   {
-    title: "Besoin d'un mentor ?",
+    title: "Mentorat",
+    subtitle: "Un accompagnement 100% personnalisé",
     items: [
       "Code reviews expertes",
       "Messagerie Discord illimité",
@@ -54,6 +57,7 @@ const offers = [
     ],
     cta: "Réserver ma place",
     primary: false,
+    note: "1 place disponible",
   },
   {
     title: "Mentoring 1 mois",
@@ -69,6 +73,7 @@ const offers = [
     ],
     cta: "Réserver ma place",
     primary: true,
+    note: "1 place disponible",
   },
   {
     title: "Call découverte",
@@ -120,15 +125,26 @@ const offers = [
             </p>
             <ul class="mt-6 space-y-2 text-lg">
               <li class="flex items-center gap-2">
-                <CheckIcon class="h-4 w-4 text-skin-accent" /> Maîtrise technique
-                avancée
+                <CheckIcon class="h-4 w-4 text-skin-accent" />
+                <span class="font-bold">Maîtrise technique</span>
+                <small class="text-gray-600"
+                  >(TypeScript, Architecture, DevOps, Testing)</small
+                >
               </li>
               <li class="flex items-center gap-2">
-                <CheckIcon class="h-4 w-4 text-skin-accent" /> Soft skills pour booster
-                ta carrière
+                <CheckIcon class="h-4 w-4 text-skin-accent" />
+                <span class="font-bold"
+                  >Soft skills pour booster ta carrière</span
+                ><small class="text-gray-600"
+                  >(leadership, gestion du temps, négociation)</small
+                >
               </li>
               <li class="flex items-center gap-2">
-                <CheckIcon class="h-4 w-4 text-skin-accent" /> Accompagnement personnalisé
+                <CheckIcon class="h-4 w-4 text-skin-accent" />
+                <span class="font-bold">Accompagnement sur mesure</span>
+                <small class="text-gray-600"
+                  >(mentorat, code reviews, support Discord)</small
+                >
               </li>
             </ul>
             <p class="mt-6 text-xl font-semibold">
