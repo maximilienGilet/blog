@@ -3,7 +3,7 @@ import { LOGO_IMAGE, SITE } from "@config";
 import LinkButton from "./LinkButton.astro";
 
 export interface Props {
-  activeNav?: "posts" | "about" | "search" | "newsletter";
+  activeNav?: "posts" | "about" | "search" | "newsletter" | "coaching";
 }
 
 const { activeNav } = Astro.props;
@@ -68,8 +68,11 @@ const { activeNav } = Astro.props;
             </a>
           </li>
           <li>
-            <a href="/about/" class={activeNav === "about" ? "active" : ""}>
-              About
+            <a
+              href="/coaching/"
+              class={activeNav === "coaching" ? "active" : ""}
+            >
+              Coaching
             </a>
           </li>
           <li>

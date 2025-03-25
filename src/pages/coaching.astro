@@ -1,0 +1,329 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import CheckIcon from "@components/icons/CheckIcon.astro";
+import NewsletterCTA from "@components/NewsletterCTA.astro";
+import CodingIcon from "../components/icons/CodingIcon.astro";
+import SoftSkillsIcon from "../components/icons/SoftSkillsIcon.astro";
+import SupportIcon from "../components/icons/SupportIcon.astro";
+
+const features = [
+  {
+    title: "Tu veux coder comme un pro ?",
+    items: [
+      "Maîtrise TypeScript",
+      "Clean Architecture",
+      "Infrastructure & DevOps",
+      "Bonnes pratiques de testing",
+    ],
+  },
+  {
+    title: "Envie d'être plus efficace ?",
+    items: [
+      "Communication efficace",
+      "Gestion du temps optimale",
+      "Leadership & influence",
+      "Négociation salariale",
+    ],
+  },
+  {
+    title: "Besoin d'un mentor ?",
+    items: [
+      "Code reviews expertes",
+      "Messagerie Discord illimité",
+      "Conseils personnalisés",
+      "Suivi régulier",
+    ],
+  },
+];
+
+const offers = [
+  {
+    title: "Mentoring 3 mois",
+    emoji: "🏆",
+    subtitle: "12 semaines pour transformer ta carrière",
+    price: "1977€",
+    discountedPrice: "1337€",
+    features: [
+      "12 sessions 1-1 hebdomadaires",
+      "Messagerie Discord illimité",
+      "Code reviews prioritaires",
+      "Resources exclusives",
+      "Suivi long terme personnalisé",
+    ],
+    cta: "Réserver ma place",
+    primary: false,
+  },
+  {
+    title: "Mentoring 1 mois",
+    emoji: "🔥",
+    subtitle: "4 semaines pour un boost intensif",
+    price: "697€",
+    discountedPrice: "497€",
+    features: [
+      "4 sessions 1-1 hebdomadaires",
+      "Messagerie Discord illimité",
+      "Code reviews personnalisées",
+      "Resources exclusives",
+    ],
+    cta: "Réserver ma place",
+    primary: true,
+  },
+  {
+    title: "Call découverte",
+    emoji: "💬",
+    price: "97€",
+    discountedPrice: "Gratuit*",
+    subtitle: "30min pour découvrir comment je peux t'aider",
+    features: [
+      "Diagnostic de ta situation",
+      "Plan d'action personnalisé",
+      "Conseils concrets applicables",
+    ],
+    cta: "Réserver mon call",
+    primary: false,
+    note: "* En échange d'un témoignage vidéo",
+  },
+];
+---
+
+<Layout title="Coaching - Deviens un développeur d'exception">
+  <Header activeNav="coaching" />
+  <main id="main-content">
+    <div class="overflow-hidden">
+      <div class="mx-auto max-w-6xl px-4">
+        <div
+          class="flex flex-col items-center py-16 md:flex-row md:items-center md:gap-12"
+        >
+          <div class="w-full md:w-1/3">
+            <img
+              src="/assets/profile.avif"
+              alt="Coaching personnalisé"
+              class="shadow-fat h-48 w-full rounded-lg border-2 border-skin-fill object-cover md:h-auto"
+            />
+          </div>
+
+          <div class="flex-grow pt-8 md:w-2/3 md:pt-0">
+            <h1 class="text-center text-3xl font-semibold md:text-left">
+              Passe au niveau supérieur 🚀
+            </h1>
+            <p class="mt-4 text-left text-xl">
+              Un <span class="font-bold">coaching sur mesure</span> pour les développeurs
+              JavaScript qui veulent devenir des <span class="font-bold"
+                >pros reconnus</span
+              >.
+            </p>
+            <p class="mt-4 text-left text-xl">
+              💡 <span class="font-bold">La méthode 80/20</span> pour progresser
+              rapidement et efficacement.
+            </p>
+            <ul class="mt-6 space-y-2 text-lg">
+              <li class="flex items-center gap-2">
+                <CheckIcon class="h-4 w-4 text-skin-accent" /> Maîtrise technique
+                avancée
+              </li>
+              <li class="flex items-center gap-2">
+                <CheckIcon class="h-4 w-4 text-skin-accent" /> Soft skills pour booster
+                ta carrière
+              </li>
+              <li class="flex items-center gap-2">
+                <CheckIcon class="h-4 w-4 text-skin-accent" /> Accompagnement personnalisé
+              </li>
+            </ul>
+            <p class="mt-6 text-xl font-semibold">
+              🎯 Accélère ta progression dès maintenant.
+            </p>
+            <div class="mt-8 flex flex-col gap-6 md:flex-row md:items-center">
+              <a
+                href="#offres"
+                class="hover:shadow-fat mono rounded border-2 border-skin-fill bg-skin-accent px-8 py-3 text-center text-skin-inverted transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1"
+              >
+                👉 Voir les offres
+              </a>
+              <a
+                href="#contact"
+                class="text-center hover:text-skin-accent md:text-left"
+              >
+                📞 Réserve un appel gratuit →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto w-full px-8 py-16 md:py-24">
+      <div class="w-full">
+        <h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">
+          Ce que tu vas apprendre
+        </h2>
+        <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-3 md:gap-12">
+          {
+            features.map((feature, index) => {
+              const Icon = [CodingIcon, SoftSkillsIcon, SupportIcon][index];
+              return (
+                <div class="shadow-fat hover:shadow-fat-accent flex flex-col items-center rounded-lg border-2 border-skin-fill p-6 transition-all duration-200 hover:scale-105 hover:border-skin-accent">
+                  <div class="mb-4">
+                    <Icon class="h-16 w-16 text-skin-accent" />
+                  </div>
+                  <h3 class="mb-4 text-center text-xl font-semibold">
+                    {feature.title}
+                  </h3>
+                  <ul class="mx-auto space-y-2">
+                    {feature.items.map(item => (
+                      <li class="flex items-start gap-2">
+                        <CheckIcon class="mt-1 h-4 w-4 flex-shrink-0 text-skin-accent" />
+                        <span class="text-gray-600">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+
+    <div id="offres" class="w-full bg-skin-card py-16">
+      <div class="mx-auto max-w-6xl px-8">
+        <h2 class="mono mb-12 text-3xl">Choisis ton programme</h2>
+        <div class="grid gap-8 lg:grid-cols-3">
+          {
+            offers.map((offer, index) => {
+              return (
+                <div
+                  class={`relative rounded-lg border-2 bg-skin-fill ${
+                    offer.primary
+                      ? "shadow-fat-accent border-skin-accent"
+                      : "shadow-fat border-skin-fill"
+                  } p-6`}
+                >
+                  {index === 1 && (
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2">
+                      <span class="mono inline-block rounded bg-skin-accent px-3 py-1 text-sm text-skin-inverted">
+                        Populaire
+                      </span>
+                    </div>
+                  )}
+                  <h3 class="mono mb-2 text-xl">
+                    {offer.emoji} {offer.title}
+                  </h3>
+                  {offer.subtitle && (
+                    <p class="mono mb-4 text-sm text-gray-600">
+                      {offer.subtitle}
+                    </p>
+                  )}
+                  <div class="mb-4">
+                    <div class="flex items-baseline gap-2">
+                      <span class="text-2xl font-bold">
+                        {offer.discountedPrice}
+                      </span>
+                      {offer.discountedPrice !== offer.price && (
+                        <span class="text-lg text-gray-500 line-through">
+                          {offer.price}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <ul class="mb-6 space-y-3">
+                    {offer.features.map(feature => (
+                      <li class="flex items-start gap-2">
+                        <CheckIcon class="mt-1 h-4 w-4 text-skin-accent" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href="#contact"
+                    class={`hover:shadow-fat mono block rounded border-2 border-skin-fill ${
+                      offer.primary
+                        ? "bg-skin-accent text-skin-inverted"
+                        : "hover:border-skin-fill"
+                    } px-6 py-2 text-center transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1`}
+                  >
+                    👉 {offer.cta}
+                  </a>
+                  {offer.note && (
+                    <p class="mono mt-4 text-center text-sm opacity-75">
+                      {offer.note}
+                    </p>
+                  )}
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-auto my-16 max-w-6xl px-4">
+      <h2 class="mono mb-8 text-3xl">Ce que disent les autres</h2>
+      <div class="grid gap-8 md:grid-cols-2">
+        <blockquote
+          class="shadow-fat rounded-lg border-2 border-skin-fill bg-skin-card p-8"
+        >
+          <p class="italic">
+            💬 "Max m'a aidé à structurer ma progression et à comprendre les
+            concepts avancés. Grâce à lui, j'ai décroché un meilleur poste plus
+            vite !"
+          </p>
+          <footer class="mono mt-4 text-sm">
+            — Thomas D., Développeur Frontend
+          </footer>
+        </blockquote>
+        <blockquote
+          class="shadow-fat rounded-lg border-2 border-skin-fill bg-skin-card p-8"
+        >
+          <p class="italic">
+            💬 "Un accompagnement droit à l'essentiel. J'ai appris en un mois ce
+            que j'aurais mis six mois à comprendre seul !"
+          </p>
+          <footer class="mono mt-4 text-sm">
+            — Julie M., Développeuse Fullstack
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+
+    <div id="contact" class="bg-skin-card py-16">
+      <div class="mx-auto max-w-6xl px-4 text-center">
+        <h2 class="mono mb-6 text-3xl">Prêt à passer à l'action ?</h2>
+        <p class="mx-auto mb-8 max-w-2xl text-lg">
+          Les places sont <span class="font-bold">très limitées</span> pour garantir
+          un accompagnement de qualité.
+          <span class="font-bold">Réserve ton call gratuit</span> pour voir comment
+          atteindre tes objectifs.
+        </p>
+        <a
+          href="https://cal.com/maximiliengilet/30min"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:shadow-fat mono inline-block rounded border-2 border-skin-fill bg-skin-accent px-8 py-3 text-skin-inverted transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1"
+        >
+          👉 Réserver mon appel gratuit
+        </a>
+      </div>
+    </div>
+
+    <div class="mx-auto my-16 max-w-3xl px-4">
+      <NewsletterCTA />
+    </div>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  blockquote {
+    position: relative;
+  }
+  blockquote::before {
+    content: '"';
+    position: absolute;
+    top: -1rem;
+    left: -1rem;
+    font-size: 4rem;
+    opacity: 0.1;
+  }
+</style>
