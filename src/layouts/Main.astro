@@ -31,7 +31,7 @@ const { props } = Astro;
       <h1>{props.pageTitle}</h1>
     )
   }
-  <p>{props.pageDesc}</p>
+  <p class="mono">{props.pageDesc}</p>
   <slot />
 </main>
 
@@ -43,6 +43,6 @@ const { props } = Astro;
     @apply text-2xl font-semibold sm:text-3xl;
   }
   #main-content p {
-    @apply mb-6 mt-2 italic;
+    @apply mb-6 mt-2;
   }
 </style>

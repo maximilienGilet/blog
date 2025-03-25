@@ -17,23 +17,93 @@ export default function Datetime({
   className,
 }: Props) {
   return (
-    <div className={`flex items-center space-x-2 opacity-80 ${className}`}>
-      <svg
+    <div className={`flex items-center space-x-2 opacity-80 ${className} mono`}>
+      {/* <svg
         xmlns="http://www.w3.org/2000/svg"
-        className={`${
-          size === "sm" ? "scale-90" : "scale-100"
-        } inline-block h-6 w-6 min-w-[1.375rem] fill-skin-base`}
+        viewBox="0 0 32 32"
+        id="Interface-Essential-Calendar-Appointment--Streamline-Pixel"
+        className={
+          "inline-block h-6 w-6 min-w-[1.375rem] scale-75 fill-skin-base"
+        }
         aria-hidden="true"
       >
-        <path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path>
-        <path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path>
-      </svg>
-      {modDatetime && modDatetime > pubDatetime ? (
+        <g>
+          <path
+            d="m2.285 10.67 27.43 0 0 19.81 1.52 0 0 -24.38 -1.52 0 0 3.04 -27.43 0 0 -3.04 -1.52 0 0 24.38 1.52 0 0 -19.81z"
+            fill="currentColor"
+            stroke-width="1"
+          ></path>
+          <path
+            d="M28.195 4.57h1.52V6.1h-1.52Z"
+            fill="currentColor"
+            stroke-width="1"
+          ></path>
+          <path
+            d="M2.285 30.48h27.43V32H2.285Z"
+            fill="currentColor"
+            stroke-width="1"
+          ></path>
+          <path
+            d="m25.145 18.29 -3.05 0 0 1.52 -1.52 0 0 -1.52 -3.05 0 0 1.52 -1.52 0 0 3.05 1.52 0 0 1.52 1.52 0 0 1.52 1.53 0 0 1.53 1.52 0 0 -1.53 1.52 0 0 -1.52 1.53 0 0 -1.52 1.52 0 0 -3.05 -1.52 0 0 -1.52z"
+            fill="currentColor"
+            stroke-width="1"
+          ></path>
+          <path
+            d="M23.615 13.71h1.53v1.53h-1.53Z"
+            fill="currentColor"
+            stroke-width="1"
+          ></path>
+          <path
+            d="M17.525 13.71h1.52v1.53h-1.52Z"
+            fill="currentColor"
+            stroke-width="1"
+          ></path>
+          <path
+            d="M11.425 25.9h1.53v1.53h-1.53Z"
+            fill="currentColor"
+            stroke-width="1"
+          ></path>
+          <path
+            d="M11.425 19.81h1.53v1.52h-1.53Z"
+            fill="currentColor"
+            stroke-width="1"
+          ></path>
+          <path
+            d="M11.425 13.71h1.53v1.53h-1.53Z"
+            fill="currentColor"
+            stroke-width="1"
+          ></path>
+          <path
+            d="M5.335 25.9h1.52v1.53h-1.52Z"
+            fill="currentColor"
+            stroke-width="1"
+          ></path>
+          <path
+            d="M5.335 19.81h1.52v1.52h-1.52Z"
+            fill="currentColor"
+            stroke-width="1"
+          ></path>
+          <path
+            d="M5.335 13.71h1.52v1.53h-1.52Z"
+            fill="currentColor"
+            stroke-width="1"
+          ></path>
+          <path
+            d="m8.385 4.57 0 1.53 1.52 0 0 -1.53 12.19 0 0 1.53 1.52 0 0 -1.53 4.58 0 0 -1.52 -4.58 0 0 -3.05 -1.52 0 0 3.05 -12.19 0 0 -3.05 -1.52 0 0 3.05 -4.57 0 0 1.52 4.57 0z"
+            fill="currentColor"
+            stroke-width="1"
+          ></path>
+          <path
+            d="M2.285 4.57h1.53V6.1h-1.53Z"
+            fill="currentColor"
+            stroke-width="1"
+          ></path>
+        </g>
+      </svg> */}
+      {modDatetime && modDatetime > pubDatetime && (
         <span className={`italic ${size === "sm" ? "text-sm" : "text-base"}`}>
-          Updated:
+          Màj:
         </span>
-      ) : (
-        <span className="sr-only">Published:</span>
       )}
       <span className={`italic ${size === "sm" ? "text-sm" : "text-base"}`}>
         <FormattedDatetime
@@ -61,12 +131,5 @@ const FormattedDatetime = ({ pubDatetime, modDatetime }: DatetimesProps) => {
     minute: "2-digit",
   });
 
-  return (
-    <>
-      <time dateTime={myDatetime.toISOString()}>{date}</time>
-      <span aria-hidden="true"> | </span>
-      <span className="sr-only">&nbsp;at&nbsp;</span>
-      <span className="text-nowrap">{time}</span>
-    </>
-  );
+  return <time dateTime={myDatetime.toISOString()}>{date}</time>;
 };

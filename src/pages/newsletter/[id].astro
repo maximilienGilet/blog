@@ -1,0 +1,55 @@
+---
+export const prerender = false;
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import NewsletterCTA from "@components/NewsletterCTA.astro";
+
+const apiKey = import.meta.env.CONVERTKIT_API_SECRET;
+
+interface Issue {
+  id: number;
+  created_at: string;
+  subject: string;
+  description: string;
+  content: string;
+  public: boolean;
+  published_at?: string;
+  send_at?: string;
+  thumbnail_alt?: string;
+  thumbnail_url?: string;
+  email_address: string;
+  email_layout_template: string;
+}
+
+const { id } = Astro.params;
+
+const rawIssue = await fetch(
+  `https://api.convertkit.com/v3/broadcasts/${id}?api_secret=${apiKey}`
+).then(res => res.json());
+
+const broadcast: Issue = rawIssue.broadcast;
+
+const date = new Date(broadcast.created_at);
+const formattedDate = new Intl.DateTimeFormat("fr-FR", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+}).format(date);
+---
+
+<Layout title={`${broadcast.subject} | Newsletter`}>
+  <Header activeNav="newsletter" />
+  <main id="main-content">
+    <article class="prose mx-auto my-12 max-w-3xl px-4">
+      <h1 class="mb-4">{broadcast.subject}</h1>
+      <div class="mono mb-8 text-sm opacity-75">{formattedDate}</div>
+      <div class="content" set:html={broadcast.content} />
+
+      <div class="not-prose mt-16">
+        <NewsletterCTA />
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Layout>

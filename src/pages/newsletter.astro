@@ -1,0 +1,138 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import CheckIcon from "@components/icons/CheckIcon.astro";
+import CrossIcon from "@components/icons/CrossIcon.astro";
+
+const apiKey = import.meta.env.CONVERTKIT_API_SECRET;
+
+interface Broadcast {
+  id: number;
+  created_at: string;
+  subject: string;
+}
+
+const latestIssues = await fetch(
+  `https://api.convertkit.com/v3/broadcasts?page=1&api_secret=${apiKey}&sort_order=desc`
+).then(res => res.json());
+
+const broadcasts: Broadcast[] = latestIssues.broadcasts;
+---
+
+<Layout title="Newsletter">
+  <Header activeNav="newsletter" />
+  <main id="main-content">
+    <section class="mx-auto my-12 max-w-4xl px-4">
+      <div
+        class="shadow-fat mb-8 overflow-hidden rounded-lg border-2 border-skin-fill"
+      >
+        <div class="flex flex-col items-center md:flex-row md:items-stretch">
+          <div class="w-full md:w-1/3">
+            <img
+              src="/assets/pixel-perfect-square-alt.png"
+              alt="Pixel Perfect Newsletter"
+              class="h-48 w-full object-cover md:h-full"
+            />
+          </div>
+
+          <div class="flex-grow p-8 md:w-2/3">
+            <h1 class="text-center text-2xl font-semibold md:text-left">
+              Ne reste pas à la traîne.
+            </h1>
+            <p class="mt-4 text-left text-lg">
+              Pixel Perfect c'est LA newsletter des développeurs web qui veulent
+              rester à la pointe du game.
+            </p>
+            <ul class="mb-6 mt-4 space-y-2">
+              <li class="flex items-center gap-2">
+                <CheckIcon class="h-6 w-6 text-skin-accent" />
+                <span>Les derniers articles pour rester à la pointe</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <CheckIcon class="h-6 w-6 text-skin-accent" />
+                <span>Des resources géniales pour booster tes projets</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <CheckIcon class="h-6 w-6 text-skin-accent" />
+                <span>Les coulisses de mes projets et des insights inédits</span
+                >
+              </li>
+              <li class="flex items-center gap-2 line-through opacity-75">
+                <CrossIcon class="h-6 w-6 text-skin-base" />
+                <span>Du spam et des emails inutiles</span>
+              </li>
+            </ul>
+
+            <form
+              action="https://app.kit.com/forms/5606546/subscriptions"
+              method="post"
+              class="seva-form formkit-form space-y-4"
+              data-sv-form="5606546"
+              data-uid="238699a0f4"
+              data-format="inline"
+              data-version="5"
+              min-width
+            >
+              <div data-style="clean">
+                <div>
+                  <label for="email" class="mono mb-2 block"
+                    >Adresse email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email_address"
+                    required
+                    placeholder="jean.doe@email.com"
+                    autocomplete="email"
+                    class="input w-full"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="hover:shadow-fat mono formkit-submit mt-4 w-full rounded border-2 border-skin-fill bg-skin-accent px-6 py-2 text-skin-inverted transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1"
+                >
+                  <span>S'abonner</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {
+        broadcasts.length > 0 && (
+          <div class="shadow-fat mb-8 rounded-lg border-2 border-skin-fill p-8">
+            <h2 class="mono mb-6 text-xl">Derniers numéros</h2>
+            <ul class="space-y-4">
+              {broadcasts.slice(0, 5).map(broadcast => {
+                const date = new Date(broadcast.created_at);
+                const formattedDate = new Intl.DateTimeFormat("fr-FR", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                }).format(date);
+
+                return (
+                  <li class="group flex items-center justify-between border-b border-skin-fill pb-4 last:border-0">
+                    <a
+                      href={`/newsletter/${broadcast.id}`}
+                      class="flex flex-grow items-center justify-between hover:text-skin-accent"
+                    >
+                      <span class="font-medium">{broadcast.subject}</span>
+                      <span class="mono ml-4 text-right text-sm opacity-75 group-hover:opacity-100">
+                        {formattedDate}
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )
+      }
+    </section>
+  </main>
+  <Footer />
+</Layout>

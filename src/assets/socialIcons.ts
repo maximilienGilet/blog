@@ -1,15 +1,5 @@
 const socialIcons = {
-  Github: `<svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="icon-tabler"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <path
-      d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
-    ></path>
-  </svg>`,
+  Github: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="size-6"><path fill="currentColor" d="M5 2h4v2H7v2H5V2Zm0 10H3V6h2v6Zm2 2H5v-2h2v2Zm2 2v-2H7v2H3v-2H1v2h2v2h4v4h2v-4h2v-2H9Zm0 0v2H7v-2h2Zm6-12v2H9V4h6Zm4 2h-2V4h-2V2h4v4Zm0 6V6h2v6h-2Zm-2 2v-2h2v2h-2Zm-2 2v-2h2v2h-2Zm0 2h-2v-2h2v2Zm0 0h2v4h-2v-4Z"></path></svg>`,
   Facebook: `<svg
     xmlns="http://www.w3.org/2000/svg"
     class="icon-tabler"
@@ -32,38 +22,9 @@ const socialIcons = {
     <circle cx="12" cy="12" r="3"></circle>
     <line x1="16.5" y1="7.5" x2="16.5" y2="7.501"></line>
   </svg>`,
-  LinkedIn: `<svg
-    xmlns="http://www.w3.org/2000/svg"
-    class="icon-tabler"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  >
-    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-    <line x1="8" y1="11" x2="8" y2="16"></line>
-    <line x1="8" y1="8" x2="8" y2="8.01"></line>
-    <line x1="12" y1="16" x2="12" y2="11"></line>
-    <path d="M16 16v-3a2 2 0 0 0 -4 0"></path>
-  </svg>`,
-  Mail: `<svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="icon-tabler"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-      <polyline points="3 7 12 13 21 7"></polyline>
-    </svg>`,
-  Twitter: `<svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="icon-tabler"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z"></path>
-    </svg>`,
+  LinkedIn: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="Logo-Linkedin--Streamline-Pixel"><desc>Logo Linkedin Streamline Icon: https://streamlinehq.com</desc><title>logo-linkedin</title><g><path d="M30.47 3.05H32v25.9h-1.53Z"  stroke-width="1"></path><path d="M28.95 28.95h1.52v1.53h-1.52Z"  stroke-width="1"></path><path d="M28.95 1.52h1.52v1.53h-1.52Z"  stroke-width="1"></path><path d="M27.42 4.57h1.53v22.86h-1.53Z"  stroke-width="1"></path><path d="M3.04 30.48h25.91V32H3.04Z"  stroke-width="1"></path><path d="M4.57 27.43h22.85v1.52H4.57Z"  stroke-width="1"></path><path d="m22.85 15.24 -1.52 0 0 -1.53 -3.05 0 0 1.53 -1.52 0 0 -1.53 -3.05 0 0 9.15 3.05 0 0 -4.57 1.52 0 0 -1.53 1.53 0 0 1.53 1.52 0 0 4.57 3.05 0 0 -6.1 -1.53 0 0 -1.52z"  stroke-width="1"></path><path d="M7.61 13.71h3.05v9.15H7.61Z"  stroke-width="1"></path><path d="M7.61 9.14h3.05v3.05H7.61Z"  stroke-width="1"></path><path d="M4.57 3.05h22.85v1.52H4.57Z"  stroke-width="1"></path><path d="M3.04 0h25.91v1.52H3.04Z"  stroke-width="1"></path><path d="M3.04 4.57h1.53v22.86H3.04Z"  stroke-width="1"></path><path d="M1.52 28.95h1.52v1.53H1.52Z"  stroke-width="1"></path><path d="M1.52 1.52h1.52v1.53H1.52Z"  stroke-width="1"></path><path d="M0 3.05h1.52v25.9H0Z"  stroke-width="1"></path></g></svg>`,
+  Mail: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="Email-Mail-Open-Address--Streamline-Pixel"><desc>Email Mail Open Address Streamline Icon: https://streamlinehq.com</desc><title>email-mail-open-address</title><g><path d="m30.48 12.19 0 -1.52 -1.53 0 0 -1.53 -1.52 0 0 -3.04 -1.52 0 0 12.19 1.52 0 0 -1.53 1.52 0 0 -1.52 1.53 0 0 13.71 1.52 0 0 -16.76 -1.52 0z" fill="currentColor" stroke-width="1"></path><path d="M28.95 28.95h1.53v1.53h-1.53Z" fill="currentColor" stroke-width="1"></path><path d="M3.05 30.48h25.9V32H3.05Z" fill="currentColor" stroke-width="1"></path><path d="M24.38 18.29h1.53v1.52h-1.53Z" fill="currentColor" stroke-width="1"></path><path d="M22.86 25.91h1.52v1.52h-1.52Z" fill="currentColor" stroke-width="1"></path><path d="M22.86 19.81h1.52v1.52h-1.52Z" fill="currentColor" stroke-width="1"></path><path d="M21.33 24.38h1.53v1.53h-1.53Z" fill="currentColor" stroke-width="1"></path><path d="M21.33 21.33h1.53v1.53h-1.53Z" fill="currentColor" stroke-width="1"></path><path d="M21.33 10.67h1.53v4.57h-1.53Z" fill="currentColor" stroke-width="1"></path><path d="M19.81 9.14h1.52v1.53h-1.52Z" fill="currentColor" stroke-width="1"></path><path d="M10.67 22.86h10.66v1.52H10.67Z" fill="currentColor" stroke-width="1"></path><path d="M18.29 15.24h3.04v1.52h-3.04Z" fill="currentColor" stroke-width="1"></path><path d="m18.29 10.67 -4.57 0 0 1.52 3.04 0 0 3.05 1.53 0 0 -4.57z" fill="currentColor" stroke-width="1"></path><path d="M13.72 15.24h3.04v1.52h-3.04Z" fill="currentColor" stroke-width="1"></path><path d="M12.19 7.62h7.62v1.52h-7.62Z" fill="currentColor" stroke-width="1"></path><path d="M12.19 18.29h7.62v1.52h-7.62Z" fill="currentColor" stroke-width="1"></path><path d="M12.19 12.19h1.53v3.05h-1.53Z" fill="currentColor" stroke-width="1"></path><path d="M10.67 16.76h1.52v1.53h-1.52Z" fill="currentColor" stroke-width="1"></path><path d="M10.67 9.14h1.52v1.53h-1.52Z" fill="currentColor" stroke-width="1"></path><path d="M9.14 24.38h1.53v1.53H9.14Z" fill="currentColor" stroke-width="1"></path><path d="M9.14 21.33h1.53v1.53H9.14Z" fill="currentColor" stroke-width="1"></path><path d="M9.14 10.67h1.53v6.09H9.14Z" fill="currentColor" stroke-width="1"></path><path d="M7.62 25.91h1.52v1.52H7.62Z" fill="currentColor" stroke-width="1"></path><path d="M7.62 19.81h1.52v1.52H7.62Z" fill="currentColor" stroke-width="1"></path><path d="m25.91 6.1 0 -1.53 -3.05 0 0 -1.52 -1.53 0 0 -1.53 -1.52 0 0 -1.52 -7.62 0 0 1.52 -1.52 0 0 1.53 -1.53 0 0 1.52 -3.04 0 0 1.53 19.81 0z" fill="currentColor" stroke-width="1"></path><path d="M6.1 18.29h1.52v1.52H6.1Z" fill="currentColor" stroke-width="1"></path><path d="M1.52 28.95h1.53v1.53H1.52Z" fill="currentColor" stroke-width="1"></path><path d="m1.52 15.24 1.53 0 0 1.52 1.52 0 0 1.53 1.53 0 0 -12.19 -1.53 0 0 3.04 -1.52 0 0 1.53 -1.53 0 0 1.52 -1.52 0 0 16.76 1.52 0 0 -13.71z" fill="currentColor" stroke-width="1"></path></g></svg>`,
+  X: `<svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-x"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 4l11.733 16h4.267l-11.733 -16z" /><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" /></svg>`,
   Twitch: `<svg
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"
@@ -72,15 +33,7 @@ const socialIcons = {
     >
       <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7"></path>
     </svg>`,
-  YouTube: `<svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="icon-tabler"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-    </svg>`,
+  YouTube: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="Logo-Social-Media-Youtube-Circle--Streamline-Pixel"><desc>Logo Social Media Youtube Circle Streamline Icon: https://streamlinehq.com</desc><title>logo-social-media-youtube-circle</title><path d="M30.47 9.14h-1.52V6.09h-1.53V4.57H25.9V3.05h-3.05V1.52h-3.04V0h-7.62v1.52H9.14v1.53H6.09v1.52H4.57v1.52H3.04v3.05H1.52v3.05H0v7.62h1.52v3.05h1.52v3.04h1.53v1.53h1.52v1.52h3.05v1.53h3.05V32h7.62v-1.52h3.04v-1.53h3.05v-1.52h1.52V25.9h1.53v-3.04h1.52v-3.05H32v-7.62h-1.53Zm-7.62 7.62h-1.52v1.53h-1.52v1.52h-1.53v1.52h-1.52v1.53h-3.05v1.52h-1.52V7.62h1.52v1.52h3.05v1.53h1.52v1.52h1.53v1.52h1.52v1.53h1.52Z" fill="currentColor" stroke-width="1"></path></svg>`,
   WhatsApp: `<svg
       xmlns="http://www.w3.org/2000/svg"
       class="icon-tabler"

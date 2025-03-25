@@ -1,0 +1,64 @@
+---
+import CheckIcon from "./icons/CheckIcon.astro";
+import CrossIcon from "./icons/CrossIcon.astro";
+---
+
+<div class="shadow-fat rounded-lg border-2 border-skin-fill p-6">
+  <h1 class="text-center text-2xl font-semibold md:text-left">
+    Rejoins la communauté
+  </h1>
+  <p class="mt-4 text-left text-lg">
+    Chaque semaine, des centaines de développeurs reçoivent les meilleurs
+    conseils et astuces pour améliorer leurs compétences web.
+  </p>
+  <ul class="mb-6 mt-4 space-y-2">
+    <li class="flex items-center gap-2">
+      <CheckIcon class="h-6 w-6 text-skin-accent" />
+      <span>Une veille techno soigneusement sélectionnée</span>
+    </li>
+    <li class="flex items-center gap-2">
+      <CheckIcon class="h-6 w-6 text-skin-accent" />
+      <span>Des conseils pratiques et actionnables</span>
+    </li>
+    <li class="flex items-center gap-2">
+      <CheckIcon class="h-6 w-6 text-skin-accent" />
+      <span>Une dose d'inspiration hebdomadaire</span>
+    </li>
+    <li class="flex items-center gap-2 line-through opacity-75">
+      <CrossIcon class="h-6 w-6 text-skin-base" />
+      <span>La revente de ton adresse email</span>
+    </li>
+  </ul>
+
+  <form
+    action="https://app.kit.com/forms/5606546/subscriptions"
+    method="post"
+    class="seva-form formkit-form space-y-4"
+    data-sv-form="5606546"
+    data-uid="238699a0f4"
+    data-format="inline"
+    data-version="5"
+    min-width
+  >
+    <div data-style="clean">
+      <div>
+        <label for="email" class="mono mb-2 block">Adresse email</label>
+        <input
+          type="email"
+          id="email"
+          name="email_address"
+          required
+          placeholder="jean.doe@email.com"
+          autocomplete="email"
+          class="input w-full"
+        />
+      </div>
+      <button
+        type="submit"
+        class="hover:shadow-fat mono formkit-submit mt-4 w-full rounded border-2 border-skin-fill bg-skin-accent px-6 py-2 text-skin-inverted transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1"
+      >
+        <span>S'abonner</span>
+      </button>
+    </div>
+  </form>
+</div>
