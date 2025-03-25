@@ -30,7 +30,7 @@ const features = [
     ],
   },
   {
-    title: "Mentorat",
+    title: "Accompagnement sur mesure",
     subtitle: "Un accompagnement 100% personnalisé",
     items: [
       "Code reviews expertes",
@@ -80,7 +80,7 @@ const offers = [
     emoji: "💬",
     price: "97€",
     discountedPrice: "Gratuit*",
-    subtitle: "30min pour découvrir comment je peux t'aider",
+    subtitle: "30min pour t'aider",
     features: [
       "Diagnostic de ta situation",
       "Plan d'action personnalisé",
@@ -105,15 +105,15 @@ const offers = [
             <img
               src="/assets/profile.avif"
               alt="Coaching personnalisé"
-              class="shadow-fat h-48 w-full rounded-lg border-2 border-skin-fill object-cover md:h-auto"
+              class="shadow-fat mx-auto w-full max-w-96 rounded-lg border-2 border-skin-fill object-cover md:h-auto"
             />
           </div>
 
           <div class="flex-grow pt-8 md:w-2/3 md:pt-0">
             <h1 class="text-center text-3xl font-semibold md:text-left">
-              Passe au niveau supérieur 🚀
+              Gagne 10 ans d'expérience en 3 mois
             </h1>
-            <p class="mt-4 text-left text-xl">
+            <p class="mt-6 text-left text-xl">
               Un <span class="font-bold">coaching sur mesure</span> pour les développeurs
               JavaScript qui veulent devenir des <span class="font-bold"
                 >pros reconnus</span
@@ -127,24 +127,16 @@ const offers = [
               <li class="flex items-center gap-2">
                 <CheckIcon class="h-4 w-4 text-skin-accent" />
                 <span class="font-bold">Maîtrise technique</span>
-                <small class="text-gray-600"
-                  >(TypeScript, Architecture, DevOps, Testing)</small
-                >
               </li>
               <li class="flex items-center gap-2">
                 <CheckIcon class="h-4 w-4 text-skin-accent" />
                 <span class="font-bold"
                   >Soft skills pour booster ta carrière</span
-                ><small class="text-gray-600"
-                  >(leadership, gestion du temps, négociation)</small
                 >
               </li>
               <li class="flex items-center gap-2">
                 <CheckIcon class="h-4 w-4 text-skin-accent" />
                 <span class="font-bold">Accompagnement sur mesure</span>
-                <small class="text-gray-600"
-                  >(mentorat, code reviews, support Discord)</small
-                >
               </li>
             </ul>
             <p class="mt-6 text-xl font-semibold">
@@ -157,12 +149,7 @@ const offers = [
               >
                 👉 Voir les offres
               </a>
-              <a
-                href="#contact"
-                class="text-center hover:text-skin-accent md:text-left"
-              >
-                📞 Réserve un appel gratuit →
-              </a>
+              <span class="mono text-sm text-gray-600">1 place disponible</span>
             </div>
           </div>
         </div>
@@ -171,8 +158,8 @@ const offers = [
 
     <div class="mx-auto w-full px-8 py-16 md:py-24">
       <div class="w-full">
-        <h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">
-          Ce que tu vas apprendre
+        <h2 class="mb-12 text-center text-xl font-bold md:text-3xl">
+          Un mentor qui te suit dans ta progression
         </h2>
         <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-3 md:gap-12">
           {
