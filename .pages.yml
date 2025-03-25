@@ -36,8 +36,10 @@ content:
       fields: [ title, draft, date ]
     fields:
       - { name: title, label: Title, type: string }
+      - { name: slug, label: Slug, type: string }
       - { name: description, label: Description, type: string }
       - { name: pubDate, label: Publication Date, type: date }
-      - { name: heroImage, label: Hero Image, type: image }
+      - { name: ogImage, label: Title, type: string }
       - { name: link, label: Link, type: string }
       - { name: github, label: GitHub, type: string }
+      - { name: body, label: Body, type: rich-text, options: { input: public/assets, output: /assets } }
