@@ -43,3 +43,4 @@ content:
       - { name: link, label: Link, type: string }
       - { name: github, label: GitHub, type: string }
       - { name: body, label: Body, type: rich-text, options: { input: public/assets, output: /assets } }
+      - { name: image, label: Image, type: image, options: { input: public/assets/projets, output: /assets/projets } }
