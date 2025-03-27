@@ -28,16 +28,18 @@ const projects = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      slug: z.string(),
       description: z.string(),
-      pubDate: z.coerce.date(),
-      heroImage: image().optional(),
-      ogImage: image().refine(img => img.width >= 1200 && img.height >= 630, {
-        message: "OpenGraph image must be at least 1200 X 630 pixels!",
-      }),
+      pubDate: z.date(),
+      ogImage: image()
+        .refine(img => img.width >= 1200 && img.height >= 630, {
+          message: "OpenGraph image must be at least 1200 X 630 pixels!",
+        })
+        .or(z.string())
+        .optional(),
       link: z.string().optional(),
       github: z.string().optional(),
-      tags: z.array(z.string()).default([]),
-      featured: z.boolean().optional().default(false),
+      image: image().optional(),
     }),
 });
 
