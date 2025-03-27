@@ -1,0 +1,35 @@
+/* Pixel cursor styles */
+html {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23000000'/></svg>") 8 8, auto;
+}
+
+a,
+button,
+[role="button"] {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23000000'/><rect x='4' y='4' width='8' height='8' fill='%23ffffff'/></svg>") 8 8, pointer !important;
+}
+
+/* Text input cursor */
+input,
+textarea,
+[contenteditable="true"] {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='20' viewBox='0 0 4 20'><rect width='4' height='20' fill='%23000000'/></svg>") 2 10, text !important;
+}
+
+/* Dark mode cursor colors */
+html[data-theme="dark"] {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23ffffff'/></svg>") 8 8, auto;
+}
+
+html[data-theme="dark"] a,
+html[data-theme="dark"] button,
+html[data-theme="dark"] [role="button"] {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23ffffff'/><rect x='4' y='4' width='8' height='8' fill='%23000000'/></svg>") 8 8, pointer !important;
+}
+
+/* Dark mode text input cursor */
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] [contenteditable="true"] {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='20' viewBox='0 0 4 20'><rect width='4' height='20' fill='%23ffffff'/></svg>") 2 10, text !important;
+}
