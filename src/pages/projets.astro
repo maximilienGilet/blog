@@ -6,6 +6,7 @@ import Footer from "@components/Footer.astro";
 import GitHub from "@components/icons/GitHub.astro";
 import ExternalLink from "@components/icons/ExternalLink.astro";
 import Search from "@components/icons/Search.astro";
+import Clear from "@components/icons/Clear.astro";
 import Pagination from "@components/Pagination.astro";
 
 const projects = await getCollection("projets");
@@ -70,6 +71,17 @@ const nextUrl = `/projets?page=${validPage + 1}${searchParam}`;
             name="q"
             value={searchQuery}
           />
+          {
+            searchQuery && (
+              <a
+                href="/projets"
+                class="absolute inset-y-0 right-0 flex items-center pr-3 text-skin-base hover:text-skin-accent"
+                title="Effacer la recherche"
+              >
+                <Clear class="h-4 w-4" />
+              </a>
+            )
+          }
         </label>
       </form>
 
