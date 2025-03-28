@@ -18,6 +18,11 @@ const latestIssues = await fetch(
 ).then(res => res.json());
 
 const broadcasts: Broadcast[] = latestIssues.broadcasts;
+
+function formatSubject(subject: string): string {
+  const lastDashIndex = subject.lastIndexOf("-");
+  return lastDashIndex > 0 ? subject.slice(0, lastDashIndex).trim() : subject;
+}
 ---
 
 <Layout title="Newsletter">
@@ -118,10 +123,12 @@ const broadcasts: Broadcast[] = latestIssues.broadcasts;
                   <li class="group flex items-center justify-between border-b border-skin-fill pb-4 last:border-0">
                     <a
                       href={`/newsletter/${broadcast.id}`}
-                      class="flex flex-grow items-center justify-between hover:text-skin-accent"
+                      class="flex min-w-0 flex-grow items-center justify-between gap-4 hover:text-skin-accent"
                     >
-                      <span class="font-medium">{broadcast.subject}</span>
-                      <span class="mono ml-4 text-right text-sm opacity-75 group-hover:opacity-100">
+                      <span class="min-w-0 truncate font-medium">
+                        {formatSubject(broadcast.subject)}
+                      </span>
+                      <span class="mono shrink-0 whitespace-nowrap text-sm opacity-75 group-hover:opacity-100">
                         {formattedDate}
                       </span>
                     </a>
