@@ -1,0 +1,46 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import CheckIcon from "@components/icons/CheckIcon.astro";
+---
+
+<Layout title="Merci pour votre inscription !">
+  <Header activeNav="newsletter" />
+  <main id="main-content">
+    <section class="mx-auto my-12 max-w-4xl px-4">
+      <div
+        class="shadow-fat mb-8 overflow-hidden rounded-lg border-2 border-skin-fill p-8 text-center"
+      >
+        <div class="flex justify-center">
+          <CheckIcon class="h-16 w-16 text-skin-accent" />
+        </div>
+        <h1 class="mono mt-6 text-2xl font-semibold">
+          Merci pour votre inscription !
+        </h1>
+        <p class="mt-4 text-lg">
+          Vous êtes maintenant inscrit à Pixel Perfect. Vous recevrez bientôt un
+          email de confirmation.
+        </p>
+        <p class="mt-2 text-lg">
+          En attendant, n'hésitez pas à explorer le reste du site !
+        </p>
+        <div class="mt-8">
+          <a
+            href="/"
+            class="hover:shadow-fat mono inline-block rounded border-2 border-skin-fill bg-skin-accent px-6 py-2 text-skin-inverted transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1"
+          >
+            Retour à l'accueil
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .mono {
+    font-family: "Mono", monospace;
+  }
+</style>
