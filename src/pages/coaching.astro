@@ -201,7 +201,7 @@ const offers = [
                     offer.primary
                       ? "shadow-fat-accent border-skin-accent"
                       : "shadow-fat border-skin-fill"
-                  } p-6`}
+                  } flex h-full flex-col p-6`}
                 >
                   {index === 1 && (
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2">
@@ -210,49 +210,53 @@ const offers = [
                       </span>
                     </div>
                   )}
-                  <h3 class="mono mb-2 text-xl">
-                    {offer.emoji} {offer.title}
-                  </h3>
-                  {offer.subtitle && (
-                    <p class="mono mb-4 text-sm text-gray-600">
-                      {offer.subtitle}
-                    </p>
-                  )}
-                  <div class="mb-4">
-                    <div class="flex items-baseline gap-2">
-                      <span class="text-2xl font-bold">
-                        {offer.discountedPrice}
-                      </span>
-                      {offer.discountedPrice !== offer.price && (
-                        <span class="text-lg text-gray-500 line-through">
-                          {offer.price}
+                  <div class="flex-grow">
+                    <h3 class="mono mb-2 text-xl">
+                      {offer.emoji} {offer.title}
+                    </h3>
+                    {offer.subtitle && (
+                      <p class="mono mb-4 text-sm text-gray-600">
+                        {offer.subtitle}
+                      </p>
+                    )}
+                    <div class="mb-4">
+                      <div class="flex items-baseline gap-2">
+                        <span class="text-2xl font-bold">
+                          {offer.discountedPrice}
                         </span>
-                      )}
+                        {offer.discountedPrice !== offer.price && (
+                          <span class="text-lg text-gray-500 line-through">
+                            {offer.price}
+                          </span>
+                        )}
+                      </div>
                     </div>
+                    <ul class="mb-6 space-y-3">
+                      {offer.features.map(feature => (
+                        <li class="flex items-start gap-2">
+                          <CheckIcon class="mt-1 h-4 w-4 text-skin-accent" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul class="mb-6 space-y-3">
-                    {offer.features.map(feature => (
-                      <li class="flex items-start gap-2">
-                        <CheckIcon class="mt-1 h-4 w-4 text-skin-accent" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <a
-                    href="#contact"
-                    class={`hover:shadow-fat mono block rounded border-2 border-skin-fill ${
-                      offer.primary
-                        ? "bg-skin-accent text-skin-inverted"
-                        : "hover:border-skin-fill"
-                    } px-6 py-2 text-center transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1`}
-                  >
-                    👉 {offer.cta}
-                  </a>
-                  {offer.note && (
-                    <p class="mono mt-4 text-center text-sm opacity-75">
-                      {offer.note}
-                    </p>
-                  )}
+                  <div class="mt-auto">
+                    <a
+                      href="#contact"
+                      class={`hover:shadow-fat mono block rounded border-2 border-skin-fill ${
+                        offer.primary
+                          ? "bg-skin-accent text-skin-inverted"
+                          : "hover:border-skin-fill"
+                      } px-6 py-2 text-center transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1`}
+                    >
+                      👉 {offer.cta}
+                    </a>
+                    {offer.note && (
+                      <p class="mono mt-4 text-center text-sm opacity-75">
+                        {offer.note}
+                      </p>
+                    )}
+                  </div>
                 </div>
               );
             })
