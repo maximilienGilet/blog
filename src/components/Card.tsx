@@ -6,7 +6,7 @@ export interface Props {
   href?: string;
   frontmatter: CollectionEntry<"blog">["data"];
   secHeading?: boolean;
-  type: "post" | "project";
+  type?: "post" | "project";
 }
 
 export default function Card({
@@ -35,9 +35,11 @@ export default function Card({
             <h3 {...headerProps}>{title}</h3>
           )}
         </a>
-        <span className="rounded bg-skin-card px-2 py-0.5 text-sm text-skin-base">
-          {type === "post" ? "Article" : "Projet"}
-        </span>
+        {type && (
+          <span className="rounded bg-skin-card px-2 py-0.5 text-sm text-skin-base">
+            {type === "post" ? "Article" : "Projet"}
+          </span>
+        )}
       </div>
       <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} />
       <p>{description}</p>
