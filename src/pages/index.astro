@@ -10,12 +10,21 @@ import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
+import GitHub from "@components/icons/GitHub.astro";
+import ExternalLink from "@components/icons/ExternalLink.astro";
+import CodingIcon from "@components/icons/CodingIcon.astro";
 
 const posts = await getCollection("blog");
+const projects = await getCollection("projets");
 
 const sortedPosts = getSortedPosts(posts);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts.filter(({ data }) => !data.featured);
+
+// Sort projects by date and get the latest 3
+const sortedProjects = projects
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 
 const socialCount = SOCIALS.filter(social => social.active).length;
 
@@ -193,14 +202,81 @@ const profilePicture = "/assets/profile.avif";
               )}
             </ul>
           </section>
-          {featuredPosts.length > 0 && <Hr />}
+          <div class="all-posts-btn-wrapper mono">
+            <LinkButton href="/posts/"> Tous les posts &rarr; </LinkButton>
+          </div>
+          <Hr />
         </>
       )
     }
 
+    <section id="latest-projects">
+      <h2>
+        <CodingIcon class="scale-125" />
+        Projets récents
+      </h2>
+      <ul class="mt-8 space-y-8">
+        {
+          sortedProjects.map(project => (
+            <li class="shadow-fat hover:shadow-fat-accent group rounded-lg border-2 border-skin-line p-6 transition-all hover:border-skin-accent">
+              <article>
+                <a href={`/projets/${project.slug}`} class="block">
+                  {project.data.image && (
+                    <img
+                      src={"/" + project.data.image}
+                      alt={project.data.title}
+                      class="mb-4 max-h-96 w-full rounded-lg object-cover"
+                    />
+                  )}
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <h3 class="text-xl font-semibold group-hover:text-skin-accent">
+                        {project.data.title}
+                      </h3>
+                      <p class="text-skin-muted mt-2">
+                        {project.data.description}
+                      </p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      {project.data.github && (
+                        <a
+                          href={project.data.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="hover:text-skin-accent"
+                          title="Voir sur GitHub"
+                        >
+                          <GitHub class="h-6 w-6" />
+                        </a>
+                      )}
+                      {project.data.link && (
+                        <a
+                          href={project.data.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="hover:text-skin-accent"
+                          title="Voir le projet"
+                        >
+                          <ExternalLink class="h-6 w-6" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </a>
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-8 text-center">
+        <LinkButton href="/projets/">Voir tous les projets &rarr;</LinkButton>
+      </div>
+    </section>
+
     {
       featuredPosts.length > 0 && (
         <>
+          <Hr />
           <section id="featured">
             <h2>
               <svg
@@ -351,10 +427,6 @@ const profilePicture = "/assets/profile.avif";
         </>
       )
     }
-
-    <div class="all-posts-btn-wrapper mono">
-      <LinkButton href="/posts/"> Tous les posts &rarr; </LinkButton>
-    </div>
   </main>
 
   <Footer />
@@ -385,11 +457,13 @@ const profilePicture = "/assets/profile.avif";
 
     /* ===== Featured & Recent Posts Sections ===== */
     #featured,
-    #recent-posts {
+    #recent-posts,
+    #latest-projects {
       @apply pb-6 pt-12;
     }
     #featured h2,
-    #recent-posts h2 {
+    #recent-posts h2,
+    #latest-projects h2 {
       @apply text-2xl font-semibold tracking-wide;
     }
     .all-posts-btn-wrapper {
