@@ -149,7 +149,9 @@ const offers = [
               >
                 👉 Voir les offres
               </a>
-              <span class="mono text-sm text-gray-600">1 place disponible</span>
+              <span class="mono text-skin-muted text-sm"
+                >1 place disponible</span
+              >
             </div>
           </div>
         </div>
@@ -177,7 +179,7 @@ const offers = [
                     {feature.items.map(item => (
                       <li class="flex items-start gap-2">
                         <CheckIcon class="mt-1 h-4 w-4 flex-shrink-0 text-skin-accent" />
-                        <span class="text-gray-600">{item}</span>
+                        <span class="text-skin-muted">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -215,7 +217,7 @@ const offers = [
                       {offer.emoji} {offer.title}
                     </h3>
                     {offer.subtitle && (
-                      <p class="mono mb-4 text-sm text-gray-600">
+                      <p class="mono text-skin-muted mb-4 text-sm">
                         {offer.subtitle}
                       </p>
                     )}
@@ -225,7 +227,7 @@ const offers = [
                           {offer.discountedPrice}
                         </span>
                         {offer.discountedPrice !== offer.price && (
-                          <span class="text-lg text-gray-500 line-through">
+                          <span class="text-skin-muted text-lg line-through">
                             {offer.price}
                           </span>
                         )}
