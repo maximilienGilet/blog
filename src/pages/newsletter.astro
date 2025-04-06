@@ -30,7 +30,7 @@ function formatSubject(subject: string): string {
   <main id="main-content">
     <section class="mx-auto my-12 max-w-4xl px-4">
       <div
-        class="shadow-fat mb-8 overflow-hidden rounded-lg border-2 border-skin-fill"
+        class="shadow-fat mb-8 overflow-hidden rounded-lg border-2 border-skin-line"
       >
         <div class="flex flex-col items-center md:flex-row md:items-stretch">
           <div class="w-full md:w-1/3">
@@ -92,12 +92,12 @@ function formatSubject(subject: string): string {
                     required
                     placeholder="jean.doe@email.com"
                     autocomplete="email"
-                    class="input w-full"
+                    class="input w-full border-skin-line"
                   />
                 </div>
                 <button
                   type="submit"
-                  class="hover:shadow-fat mono formkit-submit mt-4 w-full rounded border-2 border-skin-fill bg-skin-accent px-6 py-2 text-skin-inverted transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1"
+                  class="hover:shadow-fat mono formkit-submit mt-4 w-full rounded border-2 border-skin-line bg-skin-accent px-6 py-2 text-skin-inverted transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1"
                 >
                   <span>S'abonner</span>
                 </button>
@@ -109,7 +109,7 @@ function formatSubject(subject: string): string {
 
       {
         broadcasts.length > 0 && (
-          <div class="shadow-fat mb-8 rounded-lg border-2 border-skin-fill p-8">
+          <div class="shadow-fat mb-8 rounded-lg border-2 border-skin-line p-8">
             <h2 class="mono mb-6 text-xl">Derniers numéros</h2>
             <ul class="space-y-4">
               {broadcasts.slice(0, 5).map(broadcast => {
@@ -121,7 +121,7 @@ function formatSubject(subject: string): string {
                 }).format(date);
 
                 return (
-                  <li class="group flex items-center justify-between border-b border-skin-fill pb-4 last:border-0">
+                  <li class="group flex items-center justify-between border-b border-skin-line pb-4 last:border-0">
                     <a
                       href={`/newsletter/${broadcast.id}`}
                       class="flex min-w-0 flex-grow items-center justify-between gap-4 hover:text-skin-accent"

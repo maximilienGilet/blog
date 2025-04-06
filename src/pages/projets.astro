@@ -98,7 +98,7 @@ const nextUrl = `/projets?page=${validPage + 1}${searchParam}`;
       <ul class="mt-8 space-y-8 pb-8">
         {
           paginatedProjects.map(project => (
-            <li class="shadow-fat group rounded-lg border-2 border-skin-fill p-6 transition-all hover:border-skin-accent">
+            <li class="shadow-fat hover:shadow-fat-accent group rounded-lg border-2 border-skin-line p-6 transition-all hover:border-skin-accent">
               <article>
                 <a href={`/projets/${project.slug}`} class="block">
                   {project.data.image && (

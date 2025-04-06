@@ -43,7 +43,9 @@ const formattedDate = new Intl.DateTimeFormat("fr-FR", {
   <main id="main-content">
     <article class="prose mx-auto my-12 max-w-3xl px-4">
       <h1 class="mb-4">{broadcast.subject}</h1>
-      <div class="mono mb-8 text-sm opacity-75">{formattedDate}</div>
+      <div class="mono mb-8 text-sm text-skin-base opacity-75">
+        {formattedDate}
+      </div>
       <div class="content" set:html={broadcast.content} />
 
       <div class="not-prose mt-16">
