@@ -105,7 +105,7 @@ const offers = [
             <img
               src="/assets/profile.avif"
               alt="Coaching personnalisé"
-              class="shadow-fat mx-auto w-full max-w-96 rounded-lg border-2 border-skin-fill object-cover md:h-auto"
+              class="shadow-fat mx-auto w-full max-w-96 rounded-lg border-2 border-skin-line object-cover md:h-auto"
             />
           </div>
 
@@ -145,11 +145,13 @@ const offers = [
             <div class="mt-8 flex flex-col gap-6 md:flex-row md:items-center">
               <a
                 href="#offres"
-                class="hover:shadow-fat mono rounded border-2 border-skin-fill bg-skin-accent px-8 py-3 text-center text-skin-inverted transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1"
+                class="hover:shadow-fat mono rounded border-2 border-skin-line bg-skin-accent px-8 py-3 text-center text-skin-inverted transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1"
               >
                 👉 Voir les offres
               </a>
-              <span class="mono text-sm text-gray-600">1 place disponible</span>
+              <span class="mono text-skin-muted text-sm"
+                >1 place disponible</span
+              >
             </div>
           </div>
         </div>
@@ -166,7 +168,7 @@ const offers = [
             features.map((feature, index) => {
               const Icon = [CodingIcon, SoftSkillsIcon, SupportIcon][index];
               return (
-                <div class="shadow-fat hover:shadow-fat-accent flex flex-col items-center rounded-lg border-2 border-skin-fill p-6 transition-all duration-200 hover:scale-105 hover:border-skin-accent">
+                <div class="shadow-fat hover:shadow-fat-accent flex flex-col items-center rounded-lg border-2 border-skin-line p-6 transition-all duration-200 hover:scale-105 hover:border-skin-accent">
                   <div class="mb-4">
                     <Icon class="h-16 w-16 text-skin-accent" />
                   </div>
@@ -177,7 +179,7 @@ const offers = [
                     {feature.items.map(item => (
                       <li class="flex items-start gap-2">
                         <CheckIcon class="mt-1 h-4 w-4 flex-shrink-0 text-skin-accent" />
-                        <span class="text-gray-600">{item}</span>
+                        <span class="text-skin-muted">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -200,7 +202,7 @@ const offers = [
                   class={`relative rounded-lg border-2 bg-skin-fill ${
                     offer.primary
                       ? "shadow-fat-accent border-skin-accent"
-                      : "shadow-fat border-skin-fill"
+                      : "shadow-fat border-skin-line"
                   } flex h-full flex-col p-6`}
                 >
                   {index === 1 && (
@@ -215,7 +217,7 @@ const offers = [
                       {offer.emoji} {offer.title}
                     </h3>
                     {offer.subtitle && (
-                      <p class="mono mb-4 text-sm text-gray-600">
+                      <p class="mono text-skin-muted mb-4 text-sm">
                         {offer.subtitle}
                       </p>
                     )}
@@ -225,7 +227,7 @@ const offers = [
                           {offer.discountedPrice}
                         </span>
                         {offer.discountedPrice !== offer.price && (
-                          <span class="text-lg text-gray-500 line-through">
+                          <span class="text-skin-muted text-lg line-through">
                             {offer.price}
                           </span>
                         )}
@@ -243,10 +245,10 @@ const offers = [
                   <div class="mt-auto">
                     <a
                       href="#contact"
-                      class={`hover:shadow-fat mono block rounded border-2 border-skin-fill ${
+                      class={`hover:shadow-fat mono block rounded border-2 border-skin-line ${
                         offer.primary
                           ? "bg-skin-accent text-skin-inverted"
-                          : "hover:border-skin-fill"
+                          : "hover:border-skin-line"
                       } px-6 py-2 text-center transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1`}
                     >
                       👉 {offer.cta}
@@ -269,7 +271,7 @@ const offers = [
       <h2 class="mono mb-8 text-3xl">Ce que disent les autres</h2>
       <div class="grid gap-8 md:grid-cols-2">
         <blockquote
-          class="shadow-fat rounded-lg border-2 border-skin-fill bg-skin-card p-8"
+          class="shadow-fat rounded-lg border-2 border-skin-line bg-skin-card p-8"
         >
           <p class="italic">
             💬 "Max m'a aidé à structurer ma progression et à comprendre les
@@ -281,7 +283,7 @@ const offers = [
           </footer>
         </blockquote>
         <blockquote
-          class="shadow-fat rounded-lg border-2 border-skin-fill bg-skin-card p-8"
+          class="shadow-fat rounded-lg border-2 border-skin-line bg-skin-card p-8"
         >
           <p class="italic">
             💬 "Un accompagnement droit à l'essentiel. J'ai appris en un mois ce
@@ -307,7 +309,7 @@ const offers = [
           href="https://cal.com/maximiliengilet/30min"
           target="_blank"
           rel="noopener noreferrer"
-          class="hover:shadow-fat mono inline-block rounded border-2 border-skin-fill bg-skin-accent px-8 py-3 text-skin-inverted transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1"
+          class="hover:shadow-fat mono inline-block rounded border-2 border-skin-line bg-skin-accent px-8 py-3 text-skin-inverted transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1"
         >
           👉 Réserver mon appel gratuit
         </a>
