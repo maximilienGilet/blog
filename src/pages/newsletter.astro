@@ -4,6 +4,7 @@ import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import CheckIcon from "@components/icons/CheckIcon.astro";
 import CrossIcon from "@components/icons/CrossIcon.astro";
+import { slugifyStr } from "@utils/slugify";
 
 const apiKey = import.meta.env.CONVERTKIT_API_SECRET;
 
@@ -126,10 +127,16 @@ function formatSubject(subject: string): string {
                       href={`/newsletter/${broadcast.id}`}
                       class="flex min-w-0 flex-grow items-center justify-between gap-4 hover:text-skin-accent"
                     >
-                      <span class="min-w-0 truncate font-medium">
+                      <span
+                        class="min-w-0 truncate font-medium"
+                        transition:name={`newsletter-title-${slugifyStr(broadcast.subject)}`}
+                      >
                         {formatSubject(broadcast.subject)}
                       </span>
-                      <span class="mono shrink-0 whitespace-nowrap text-sm opacity-75 group-hover:opacity-100">
+                      <span
+                        class="mono shrink-0 whitespace-nowrap text-sm opacity-75 group-hover:opacity-100"
+                        transition:name={`newsletter-date-${slugifyStr(broadcast.subject)}`}
+                      >
                         {formattedDate}
                       </span>
                     </a>

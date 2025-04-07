@@ -8,7 +8,7 @@ import ExternalLink from "@components/icons/ExternalLink.astro";
 import Search from "@components/icons/Search.astro";
 import Clear from "@components/icons/Clear.astro";
 import Pagination from "@components/Pagination.astro";
-
+import { slugifyStr } from "@utils/slugify";
 const projects = await getCollection("projets");
 
 // Sort by date
@@ -56,7 +56,12 @@ const nextUrl = `/projets?page=${validPage + 1}${searchParam}`;
         Une sélection de mes projets personnels et professionnels.
       </p>
 
-      <form class="mt-8" action="/projets" method="get">
+      <form
+        class="mt-8"
+        action="/projets"
+        method="get"
+        transition:name="search-form"
+      >
         <label class="relative block">
           <span
             class="absolute inset-y-0 left-0 flex items-center pl-2 opacity-75"
@@ -87,7 +92,7 @@ const nextUrl = `/projets?page=${validPage + 1}${searchParam}`;
 
       {
         searchQuery && (
-          <div class="mt-8">
+          <div class="mt-8" transition:name="search-results">
             {filteredProjects.length}
             {filteredProjects.length === 1 ? " résultat " : " résultats "}
             pour '{searchQuery}'
@@ -98,7 +103,7 @@ const nextUrl = `/projets?page=${validPage + 1}${searchParam}`;
       <ul class="mt-8 space-y-8 pb-8">
         {
           paginatedProjects.map(project => (
-            <li class="shadow-fat hover:shadow-fat-accent group rounded-lg border-2 border-skin-line p-6 transition-all hover:border-skin-accent">
+            <li class="hover:shadow-fat hover:shadow-fat-accent group rounded-lg border-2 border-skin-line p-6 transition-all hover:-translate-x-1 hover:-translate-y-1 hover:border-skin-accent">
               <article>
                 <a href={`/projets/${project.slug}`} class="block">
                   {project.data.image && (
@@ -106,14 +111,21 @@ const nextUrl = `/projets?page=${validPage + 1}${searchParam}`;
                       src={"/" + project.data.image}
                       alt={project.data.title}
                       class="mb-4 max-h-96 w-full rounded-lg object-cover"
+                      transition:name={`project-image-${slugifyStr(project.data.slug)}`}
                     />
                   )}
                   <div class="flex items-start justify-between">
                     <div>
-                      <h2 class="text-xl font-semibold group-hover:text-skin-accent">
+                      <h2
+                        class="text-xl font-semibold group-hover:text-skin-accent"
+                        transition:name={`project-title-${slugifyStr(project.data.slug)}`}
+                      >
                         {project.data.title}
                       </h2>
-                      <p class="text-skin-muted mt-2">
+                      <p
+                        class="text-skin-muted mt-2"
+                        transition:name={`project-desc-${slugifyStr(project.data.slug)}`}
+                      >
                         {project.data.description}
                       </p>
                     </div>
@@ -125,6 +137,7 @@ const nextUrl = `/projets?page=${validPage + 1}${searchParam}`;
                           rel="noopener noreferrer"
                           class="hover:text-skin-accent"
                           title="Voir sur GitHub"
+                          transition:name={`project-github-${slugifyStr(project.data.slug)}`}
                         >
                           <GitHub class="h-6 w-6" />
                         </a>
@@ -136,6 +149,7 @@ const nextUrl = `/projets?page=${validPage + 1}${searchParam}`;
                           rel="noopener noreferrer"
                           class="hover:text-skin-accent"
                           title="Voir le projet"
+                          transition:name={`project-link-${slugifyStr(project.data.slug)}`}
                         >
                           <ExternalLink class="h-6 w-6" />
                         </a>

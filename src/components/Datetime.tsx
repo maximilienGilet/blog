@@ -1,4 +1,5 @@
 import { LOCALE } from "@config";
+import { slugifyStr } from "@utils/slugify";
 
 interface DatetimesProps {
   pubDatetime: string | Date;
@@ -105,7 +106,10 @@ export default function Datetime({
           Màj:
         </span>
       )}
-      <span className={`italic ${size === "sm" ? "text-sm" : "text-base"}`}>
+      <span
+        className={`italic ${size === "sm" ? "text-sm" : "text-base"}`}
+        style={{ viewTransitionName: slugifyStr(pubDatetime.toString()) }}
+      >
         <FormattedDatetime
           pubDatetime={pubDatetime}
           modDatetime={modDatetime}

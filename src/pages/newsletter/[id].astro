@@ -4,6 +4,7 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import NewsletterCTA from "@components/NewsletterCTA.astro";
+import { slugifyStr } from "@utils/slugify";
 
 const apiKey = import.meta.env.CONVERTKIT_API_SECRET;
 
@@ -42,8 +43,16 @@ const formattedDate = new Intl.DateTimeFormat("fr-FR", {
   <Header activeNav="newsletter" />
   <main id="main-content">
     <article class="prose mx-auto my-12 max-w-3xl px-4">
-      <h1 class="mb-4">{broadcast.subject}</h1>
-      <div class="mono mb-8 text-sm text-skin-base opacity-75">
+      <h1
+        class="mb-4"
+        transition:name={`newsletter-title-${slugifyStr(broadcast.subject)}`}
+      >
+        {broadcast.subject}
+      </h1>
+      <div
+        class="mono mb-8 text-sm text-skin-base opacity-75"
+        transition:name={`newsletter-date-${slugifyStr(broadcast.subject)}`}
+      >
         {formattedDate}
       </div>
       <div class="content" set:html={broadcast.content} />

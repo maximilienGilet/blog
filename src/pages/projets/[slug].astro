@@ -6,6 +6,7 @@ import Footer from "@components/Footer.astro";
 import Breadcrumbs from "@components/Breadcrumbs.astro";
 import ExternalLink from "@components/icons/ExternalLink.astro";
 import GitHub from "@components/icons/GitHub.astro";
+import { slugifyStr } from "@utils/slugify";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projets");
@@ -35,14 +36,25 @@ const { Content } = await project.render();
               src={"/" + project.data.image}
               alt={project.data.title}
               class="mb-8 max-h-96 w-full cursor-pointer rounded-lg object-cover"
+              transition:name={`project-image-${slugifyStr(project.data.slug)}`}
             />
           </a>
         )
       }
       <div class="flex items-start justify-between gap-4">
         <div>
-          <h1 class="text-4xl font-bold">{project.data.title}</h1>
-          <p class="text-skin-fill mt-4 text-xl">{project.data.description}</p>
+          <h1
+            class="text-4xl font-bold"
+            transition:name={`project-title-${slugifyStr(project.data.slug)}`}
+          >
+            {project.data.title}
+          </h1>
+          <p
+            class="text-skin-fill mt-4 text-xl"
+            transition:name={`project-desc-${slugifyStr(project.data.slug)}`}
+          >
+            {project.data.description}
+          </p>
         </div>
         <div class="flex flex-shrink-0 items-center gap-3">
           {
@@ -52,6 +64,7 @@ const { Content } = await project.render();
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 rounded-lg border-2 border-skin-accent px-4 py-2 text-skin-accent hover:bg-skin-accent hover:text-skin-inverted"
+                transition:name={`project-github-${slugifyStr(project.data.slug)}`}
               >
                 <GitHub class="h-5 w-5" />
                 GitHub
@@ -65,6 +78,7 @@ const { Content } = await project.render();
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 rounded-lg border-2 border-skin-accent px-4 py-2 text-skin-accent hover:bg-skin-accent hover:text-skin-inverted"
+                transition:name={`project-link-${slugifyStr(project.data.slug)}`}
               >
                 <ExternalLink class="h-5 w-5" />
                 Site web
@@ -73,7 +87,10 @@ const { Content } = await project.render();
           }
         </div>
       </div>
-      <div class="prose prose-lg mt-8 max-w-none">
+      <div
+        class="prose prose-lg mt-8 max-w-none"
+        transition:name={`project-content-${slugifyStr(project.data.slug)}`}
+      >
         <Content />
       </div>
     </article>

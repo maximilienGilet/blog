@@ -68,10 +68,12 @@ const profilePicture = "/assets/profile.avif";
       </a>
 
       <p>
-        Développeur frontend passionné, je transforme des idées en applications
-        web performantes et durables. Spécialisé en React, TypeScript et
-        Next.js, je partage mon expertise, mes réflexions techniques et mes
-        retours d'expérience sur le développement moderne.
+        Développeur fullstack passionné, <strong>je transforme des idées</strong
+        > en <strong>applications web performantes</strong> et <strong
+          >durables</strong
+        >. Spécialisé en React, TypeScript et Next.js, je partage mon expertise,
+        mes réflexions techniques et mes retours d'expérience sur le
+        développement moderne.
         <br />
         <br />
         Bienvenue dans mon univers où code rime avec innovation !
@@ -218,22 +220,30 @@ const profilePicture = "/assets/profile.avif";
       <ul class="mt-8 space-y-8">
         {
           sortedProjects.map(project => (
-            <li class="shadow-fat hover:shadow-fat-accent group rounded-lg border-2 border-skin-line p-6 transition-all hover:border-skin-accent">
+            <li class="hover:shadow-fat-accent group rounded-lg border-2 border-skin-line p-6 transition-all hover:-translate-x-1 hover:-translate-y-1 hover:border-skin-accent">
               <article>
-                <a href={`/projets/${project.slug}`} class="block">
+                <a
+                  href={`/projets/${project.slug}`}
+                  class="block"
+                  transition:persist
+                >
                   {project.data.image && (
                     <img
                       src={"/" + project.data.image}
                       alt={project.data.title}
                       class="mb-4 max-h-96 w-full rounded-lg object-cover"
+                      transition:persist
                     />
                   )}
                   <div class="flex items-start justify-between">
                     <div>
-                      <h3 class="text-xl font-semibold group-hover:text-skin-accent">
+                      <h3
+                        class="text-xl font-semibold group-hover:text-skin-accent"
+                        transition:persist
+                      >
                         {project.data.title}
                       </h3>
-                      <p class="text-skin-muted mt-2">
+                      <p class="text-skin-muted mt-2" transition:persist>
                         {project.data.description}
                       </p>
                     </div>
@@ -245,6 +255,7 @@ const profilePicture = "/assets/profile.avif";
                           rel="noopener noreferrer"
                           class="hover:text-skin-accent"
                           title="Voir sur GitHub"
+                          transition:persist
                         >
                           <GitHub class="h-6 w-6" />
                         </a>
@@ -256,6 +267,7 @@ const profilePicture = "/assets/profile.avif";
                           rel="noopener noreferrer"
                           class="hover:text-skin-accent"
                           title="Voir le projet"
+                          transition:persist
                         >
                           <ExternalLink class="h-6 w-6" />
                         </a>
@@ -269,7 +281,9 @@ const profilePicture = "/assets/profile.avif";
         }
       </ul>
       <div class="mt-8 text-center">
-        <LinkButton href="/projets/">Voir tous les projets &rarr;</LinkButton>
+        <LinkButton href="/projets/" transition:persist
+          >Voir tous les projets &rarr;</LinkButton
+        >
       </div>
     </section>
 
