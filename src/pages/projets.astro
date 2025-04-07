@@ -50,120 +50,122 @@ const nextUrl = `/projets?page=${validPage + 1}${searchParam}`;
 <Layout title="Projets - Maximilien Gilet">
   <Header activeNav="projets" />
   <main id="main-content">
-    <section class="mx-auto max-w-3xl px-4">
-      <h1 class="text-3xl font-semibold">Mes projets</h1>
-      <p class="text-skin-muted mt-4">
-        Une sélection de mes projets personnels et professionnels.
-      </p>
+    <section class="mx-auto max-w-6xl p-4">
+      <div class="mx-auto max-w-2xl">
+        <h1 class="text-3xl font-semibold">Mes projets</h1>
+        <p class="text-skin-muted mt-4">
+          Une sélection de mes projets personnels et professionnels.
+        </p>
 
-      <form
-        class="mt-8"
-        action="/projets"
-        method="get"
-        transition:name="search-form"
-      >
-        <label class="relative block">
-          <span
-            class="absolute inset-y-0 left-0 flex items-center pl-2 opacity-75"
-          >
-            <Search className="scale-125 sm:scale-100" />
-            <span class="sr-only">Rechercher</span>
-          </span>
-          <input
-            class="input w-full pl-10 pr-3 placeholder:italic placeholder:text-opacity-75"
-            placeholder="Rechercher..."
-            type="text"
-            name="q"
-            value={searchQuery}
-          />
-          {
-            searchQuery && (
-              <a
-                href="/projets"
-                class="absolute inset-y-0 right-0 flex items-center pr-3 text-skin-base hover:text-skin-accent"
-                title="Effacer la recherche"
-              >
-                <Clear class="h-4 w-4" />
-              </a>
-            )
-          }
-        </label>
-      </form>
+        <form
+          class="mt-8"
+          action="/projets"
+          method="get"
+          transition:name="search-form"
+        >
+          <label class="relative block">
+            <span
+              class="absolute inset-y-0 left-0 flex items-center pl-2 opacity-75"
+            >
+              <Search className="scale-125 sm:scale-100" />
+              <span class="sr-only">Rechercher</span>
+            </span>
+            <input
+              class="input w-full pl-10 pr-3 placeholder:italic placeholder:text-opacity-75"
+              placeholder="Rechercher..."
+              type="text"
+              name="q"
+              value={searchQuery}
+            />
+            {
+              searchQuery && (
+                <a
+                  href="/projets"
+                  class="absolute inset-y-0 right-0 flex items-center pr-3 text-skin-base hover:text-skin-accent"
+                  title="Effacer la recherche"
+                >
+                  <Clear class="h-4 w-4" />
+                </a>
+              )
+            }
+          </label>
+        </form>
 
-      {
-        searchQuery && (
-          <div class="mt-8" transition:name="search-results">
-            {filteredProjects.length}
-            {filteredProjects.length === 1 ? " résultat " : " résultats "}
-            pour '{searchQuery}'
-          </div>
-        )
-      }
+        {
+          searchQuery && (
+            <div class="mt-8" transition:name="search-results">
+              {filteredProjects.length}
+              {filteredProjects.length === 1 ? " résultat " : " résultats "}
+              pour '{searchQuery}'
+            </div>
+          )
+        }
+      </div>
 
-      <ul class="mt-8 space-y-8 pb-8">
+      <div class="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
         {
           paginatedProjects.map(project => (
-            <li class="hover:shadow-fat hover:shadow-fat-accent group rounded-lg border-2 border-skin-line p-6 transition-all hover:-translate-x-1 hover:-translate-y-1 hover:border-skin-accent">
+            <div class="hover:shadow-fat hover:shadow-fat-accent group rounded-lg border-2 border-skin-line p-8 transition-all hover:-translate-x-1 hover:-translate-y-1 hover:border-skin-accent">
               <article>
                 <a href={`/projets/${project.slug}`} class="block">
                   {project.data.image && (
                     <img
                       src={"/" + project.data.image}
                       alt={project.data.title}
-                      class="mb-4 max-h-96 w-full rounded-lg object-cover"
+                      class="mb-6 h-64 w-full rounded-lg object-cover"
                       transition:name={`project-image-${slugifyStr(project.data.slug)}`}
                     />
                   )}
-                  <div class="flex items-start justify-between">
-                    <div>
+                  <div class="flex flex-col gap-3">
+                    <div class="flex items-center justify-between">
                       <h2
-                        class="text-xl font-semibold group-hover:text-skin-accent"
+                        class="text-2xl font-semibold group-hover:text-skin-accent"
                         transition:name={`project-title-${slugifyStr(project.data.slug)}`}
                       >
                         {project.data.title}
                       </h2>
-                      <p
-                        class="text-skin-muted mt-2"
-                        transition:name={`project-desc-${slugifyStr(project.data.slug)}`}
-                      >
-                        {project.data.description}
-                      </p>
+                      <div class="flex items-center gap-4">
+                        {project.data.github && (
+                          <a
+                            href={project.data.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="hover:text-skin-accent"
+                            title="Voir sur GitHub"
+                            transition:name={`project-github-${slugifyStr(project.data.slug)}`}
+                          >
+                            <GitHub class="h-7 w-7" />
+                          </a>
+                        )}
+                        {project.data.link && (
+                          <a
+                            href={project.data.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="hover:text-skin-accent"
+                            title="Voir le projet"
+                            transition:name={`project-link-${slugifyStr(project.data.slug)}`}
+                          >
+                            <ExternalLink class="h-7 w-7" />
+                          </a>
+                        )}
+                      </div>
                     </div>
-                    <div class="flex items-center gap-3">
-                      {project.data.github && (
-                        <a
-                          href={project.data.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="hover:text-skin-accent"
-                          title="Voir sur GitHub"
-                          transition:name={`project-github-${slugifyStr(project.data.slug)}`}
-                        >
-                          <GitHub class="h-6 w-6" />
-                        </a>
-                      )}
-                      {project.data.link && (
-                        <a
-                          href={project.data.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="hover:text-skin-accent"
-                          title="Voir le projet"
-                          transition:name={`project-link-${slugifyStr(project.data.slug)}`}
-                        >
-                          <ExternalLink class="h-6 w-6" />
-                        </a>
-                      )}
-                    </div>
+                    <p
+                      class="text-skin-muted line-clamp-3 text-lg"
+                      transition:name={`project-desc-${slugifyStr(project.data.slug)}`}
+                    >
+                      {project.data.description}
+                    </p>
                   </div>
                 </a>
               </article>
-            </li>
+            </div>
           ))
         }
-      </ul>
+      </div>
 
-      <div class="pb-8">
+      <div class="pt-8">
         <Pagination
           currentPage={validPage}
           totalPages={totalPages}
