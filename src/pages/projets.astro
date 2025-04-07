@@ -3,12 +3,10 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import GitHub from "@components/icons/GitHub.astro";
-import ExternalLink from "@components/icons/ExternalLink.astro";
 import Search from "@components/icons/Search.astro";
 import Clear from "@components/icons/Clear.astro";
 import Pagination from "@components/Pagination.astro";
-import { slugifyStr } from "@utils/slugify";
+import ProjectCard from "@components/ProjectCard.astro";
 const projects = await getCollection("projets");
 
 // Sort by date
@@ -103,68 +101,7 @@ const nextUrl = `/projets?page=${validPage + 1}${searchParam}`;
       </div>
 
       <div class="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
-        {
-          paginatedProjects.map(project => (
-            <div class="hover:shadow-fat hover:shadow-fat-accent group rounded-lg border-2 border-skin-line transition-all hover:-translate-x-1 hover:-translate-y-1 hover:border-skin-accent">
-              <article>
-                <a href={`/projets/${project.slug}`} class="block">
-                  {project.data.image && (
-                    <img
-                      src={"/" + project.data.image}
-                      alt={project.data.title}
-                      class="h-64 w-full rounded-t-md border-b-2 border-skin-line object-cover"
-                      transition:name={`project-image-${slugifyStr(project.data.slug)}`}
-                    />
-                  )}
-                  <div class="p-4">
-                    <div class="flex flex-col gap-3">
-                      <div class="flex items-center justify-between">
-                        <h2
-                          class="text-2xl font-semibold group-hover:text-skin-accent"
-                          transition:name={`project-title-${slugifyStr(project.data.slug)}`}
-                        >
-                          {project.data.title}
-                        </h2>
-                        <div class="flex items-center gap-4">
-                          {project.data.github && (
-                            <a
-                              href={project.data.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              class="hover:text-skin-accent"
-                              title="Voir sur GitHub"
-                              transition:name={`project-github-${slugifyStr(project.data.slug)}`}
-                            >
-                              <GitHub class="h-7 w-7" />
-                            </a>
-                          )}
-                          {project.data.link && (
-                            <a
-                              href={project.data.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              class="hover:text-skin-accent"
-                              title="Voir le projet"
-                              transition:name={`project-link-${slugifyStr(project.data.slug)}`}
-                            >
-                              <ExternalLink class="h-7 w-7" />
-                            </a>
-                          )}
-                        </div>
-                      </div>
-                      <p
-                        class="text-skin-muted line-clamp-3 text-lg"
-                        transition:name={`project-desc-${slugifyStr(project.data.slug)}`}
-                      >
-                        {project.data.description}
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </article>
-            </div>
-          ))
-        }
+        {paginatedProjects.map(project => <ProjectCard project={project} />)}
       </div>
 
       <div class="pt-8">

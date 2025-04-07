@@ -8,12 +8,10 @@ import LinkButton from "@components/LinkButton.astro";
 import Hr from "@components/Hr.astro";
 import Card from "@components/Card";
 import Socials from "@components/Socials.astro";
+import ProjectCard from "@components/ProjectCard.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
-import GitHub from "@components/icons/GitHub.astro";
-import ExternalLink from "@components/icons/ExternalLink.astro";
 import CodingIcon from "@components/icons/CodingIcon.astro";
-import { slugifyStr } from "@utils/slugify";
 
 const posts = await getCollection("blog");
 const projects = await getCollection("projets");
@@ -221,61 +219,8 @@ const profilePicture = "/assets/profile.avif";
       <ul class="mt-8 space-y-8">
         {
           sortedProjects.map(project => (
-            <li class="hover:shadow-fat-accent group rounded-lg border-2 border-skin-line p-6 transition-all hover:-translate-x-1 hover:-translate-y-1 hover:border-skin-accent">
-              <article>
-                <a href={`/projets/${project.slug}`} class="block">
-                  {project.data.image && (
-                    <img
-                      src={"/" + project.data.image}
-                      alt={project.data.title}
-                      class="mb-4 max-h-96 w-full rounded-lg object-cover"
-                      transition:name={`project-image-${slugifyStr(project.data.slug)}`}
-                    />
-                  )}
-                  <div class="flex items-start justify-between">
-                    <div>
-                      <h3
-                        class="text-xl font-semibold group-hover:text-skin-accent"
-                        transition:name={`project-title-${slugifyStr(project.data.slug)}`}
-                      >
-                        {project.data.title}
-                      </h3>
-                      <p
-                        class="text-skin-muted mt-2"
-                        transition:name={`project-desc-${slugifyStr(project.data.slug)}`}
-                      >
-                        {project.data.description}
-                      </p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                      {project.data.github && (
-                        <a
-                          href={project.data.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="hover:text-skin-accent"
-                          title="Voir sur GitHub"
-                          transition:name={`project-github-${slugifyStr(project.data.slug)}`}
-                        >
-                          <GitHub class="h-6 w-6" />
-                        </a>
-                      )}
-                      {project.data.link && (
-                        <a
-                          href={project.data.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="hover:text-skin-accent"
-                          title="Voir le projet"
-                          transition:name={`project-link-${slugifyStr(project.data.slug)}`}
-                        >
-                          <ExternalLink class="h-6 w-6" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </a>
-              </article>
+            <li>
+              <ProjectCard project={project} />
             </li>
           ))
         }

@@ -1,0 +1,80 @@
+---
+import GitHub from "@components/icons/GitHub.astro";
+import ExternalLink from "@components/icons/ExternalLink.astro";
+import { slugifyStr } from "@utils/slugify";
+const { project } = Astro.props;
+---
+
+<div
+  class="hover:shadow-fat hover:shadow-fat-accent group rounded-lg border-2 border-skin-line transition-all hover:-translate-x-1 hover:-translate-y-1 hover:border-skin-accent"
+>
+  <article>
+    <a href={`/projets/${project.slug}`} class="block">
+      <div class="relative h-64 w-full">
+        {
+          project.data.image ? (
+            <img
+              src={"/" + project.data.image}
+              alt={project.data.title}
+              class="h-full w-full rounded-t-md border-b-2 border-skin-line object-cover"
+              transition:name={`project-image-${slugifyStr(project.slug)}`}
+              onerror="this.style.display='none';"
+            />
+          ) : null
+        }
+        <div
+          class="from-skin-accent/20 to-skin-muted/10 absolute inset-0 rounded-t-md bg-gradient-to-br"
+        >
+        </div>
+      </div>
+      <div class="p-4">
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center justify-between">
+            <h2
+              class="text-2xl font-semibold group-hover:text-skin-accent"
+              transition:name={`project-title-${slugifyStr(project.slug)}`}
+            >
+              {project.data.title}
+            </h2>
+            <div class="flex items-center gap-4">
+              {
+                project.data.github && (
+                  <a
+                    href={project.data.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:text-skin-accent"
+                    title="Voir sur GitHub"
+                    transition:name={`project-github-${slugifyStr(project.slug)}`}
+                  >
+                    <GitHub class="h-7 w-7" />
+                  </a>
+                )
+              }
+              {
+                project.data.link && (
+                  <a
+                    href={project.data.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:text-skin-accent"
+                    title="Voir le projet"
+                    transition:name={`project-link-${slugifyStr(project.slug)}`}
+                  >
+                    <ExternalLink class="h-7 w-7" />
+                  </a>
+                )
+              }
+            </div>
+          </div>
+          <p
+            class="text-skin-muted line-clamp-3 text-lg"
+            transition:name={`project-desc-${slugifyStr(project.slug)}`}
+          >
+            {project.data.description}
+          </p>
+        </div>
+      </div>
+    </a>
+  </article>
+</div>
