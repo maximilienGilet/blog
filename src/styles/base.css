@@ -19,6 +19,18 @@
     --color-card: 230, 230, 230;
     --color-card-muted: 205, 205, 205;
     --color-border: 40, 39, 40;
+    background:
+        linear-gradient(-90deg, rgba(0, 0, 0, .02) 1px, transparent 0),
+        linear-gradient(rgba(0, 0, 0, .02) 1px, transparent 0),
+        linear-gradient(-90deg, rgba(0, 0, 0, .02) 1px, transparent 0),
+        linear-gradient(rgba(0, 0, 0, .02) 1px, transparent 0),
+        linear-gradient(transparent 7.5px, #f8f8f8 0, #f8f8f8 195px, transparent 0),
+        linear-gradient(-90deg, hsla(0, 0%, 67%, .3) 1px, transparent 0),
+        linear-gradient(-90deg, transparent 7.5px, #f8f8f8 0, #f8f8f8 195px, transparent 0),
+        linear-gradient(hsla(0, 0%, 67%, .3) 1px, transparent 0),
+        #f8f8f8;
+      background-size: 10px 10px, 10px 10px, 200px 200px, 200px 200px, 200px 200px, 200px 200px, 200px 200px, 200px 200px;
+      background-position: calc(50% + 5px) 0, calc(50% + 5px) 0, calc(50% + 100px) 0, calc(50% + 100px) 0, calc(50% + 100px) 0, calc(50% + 100px) 0, calc(50% + 100px) 0, calc(50% + 100px) 0;
   }
   html[data-theme="dark"] {
     --color-fill: 28, 32, 33;
@@ -27,6 +39,18 @@
     --color-card: 38, 42, 43;
       --color-card-muted: 48, 52, 53;
       --color-border: 138, 142, 143;
+    background:
+        linear-gradient(-90deg, rgba(255, 255, 255, 0.03) 1px, transparent 0),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0),
+        linear-gradient(-90deg, rgba(255, 255, 255, 0.03) 1px, transparent 0),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0),
+        linear-gradient(transparent 7.5px, #181c17 0, #181c17 195px, transparent 0),
+        linear-gradient(-90deg, hsla(0, 0%, 100%, .08) 1px, transparent 0),
+        linear-gradient(-90deg, transparent 7.5px, #181c17 0, #181c17 195px, transparent 0),
+        linear-gradient(hsla(0, 0%, 100%, .08) 1px, transparent 0),
+        #181c17;
+      background-size: 10px 10px, 10px 10px, 200px 200px, 200px 200px, 200px 200px, 200px 200px, 200px 200px, 200px 200px;
+      background-position: calc(50% + 5px) 0, calc(50% + 5px) 0, calc(50% + 100px) 0, calc(50% + 100px) 0, calc(50% + 100px) 0, calc(50% + 100px) 0, calc(50% + 100px) 0, calc(50% + 100px) 0;
   }
   #sun-svg,
   html[data-theme="dark"] #moon-svg {
@@ -40,7 +64,7 @@
           scroll-behavior: smooth;
         }
   body {
-    @apply flex min-h-[100svh] flex-col bg-skin-fill text-skin-base
+    @apply flex min-h-[100svh] flex-col text-skin-base
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
   }
   section,
