@@ -12,6 +12,7 @@ import ProjectCard from "@components/ProjectCard.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import { SOCIALS } from "@config";
 import CodingIcon from "@components/icons/CodingIcon.astro";
+import FileTree from "@components/FileTree.astro";
 
 const posts = await getCollection("blog");
 const projects = await getCollection("projets");
@@ -41,20 +42,7 @@ const profilePicture = "/assets/profile.avif";
         <span class="badge badge-dev">Développeur full stack</span>
         <span class="badge badge-freelance">Freelance disponible</span>
       </div>
-      <pre
-        class="ascii-tree mono">
-~/skills
-├── frontend/
-│   ├── React.js
-│   ├── Next.js
-│   ├── TypeScript
-│   └── Astro
-├── backend/
-├── devops/
-└── other/
-    ├── Claviers mécaniques
-    └── Freelance/Consulting
-  </pre>
+      <FileTree />
       {
         // only display if at least one social link is enabled
         socialCount > 0 && (
@@ -451,18 +439,76 @@ const profilePicture = "/assets/profile.avif";
       border-color: #2ea96b;
     }
 
-    .ascii-tree {
+    .tech-tree {
       font-size: 1.08em;
-      background: none;
       color: rgb(var(--color-text-base));
       margin-bottom: 1.5em;
       margin-top: 0.5em;
       padding: 0.7em 0 0.7em 0.2em;
-      line-height: 1.4;
       border-radius: 0.5em;
-      white-space: pre;
-      overflow-x: auto;
       box-shadow: none;
+    }
+    .tech-tree ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 1.2em;
+      position: relative;
+    }
+    .tech-tree ul ul {
+      margin-left: 0.2em;
+      padding-left: 1.2em;
+    }
+    .tech-tree ul ul::before {
+      content: "";
+      position: absolute;
+      top: 0.7em;
+      left: 0.3em;
+      bottom: 0.3em;
+      width: 0;
+      border-left: 1.5px solid #b6b6b6;
+      z-index: 0;
+    }
+    .tech-tree li {
+      margin: 0.1em 0;
+      line-height: 1.4;
+      position: relative;
+    }
+    .tech-tree li:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: -1.1em;
+      top: 1.1em;
+      width: 1.1em;
+      height: 0;
+      border-top: 1.5px solid #b6b6b6;
+      z-index: 1;
+    }
+    .tech-tree li:last-child::before {
+      content: "";
+      position: absolute;
+      left: -1.1em;
+      top: 1.1em;
+      width: 1.1em;
+      height: 0.7em;
+      border-top: 1.5px solid #b6b6b6;
+      border-left: 1.5px solid #b6b6b6;
+      border-bottom-left-radius: 4px;
+      z-index: 1;
+    }
+    .tech-tree .folder {
+      font-weight: bold;
+      color: #888;
+      position: relative;
+      z-index: 2;
+    }
+    .tech-tree .icon {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 0.5em;
+      width: 1.1em;
+      height: 1.1em;
+      position: relative;
+      z-index: 2;
     }
   </style>
 </Layout>

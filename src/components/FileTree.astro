@@ -1,0 +1,56 @@
+---
+import FileTreeItem from "./FileTreeItem.astro";
+
+// Define the file tree data structure
+type FileTreeNode = {
+  name: string;
+  type: "file" | "folder";
+  iconType: string;
+  children?: FileTreeNode[];
+};
+
+// Sample file tree data
+const fileTreeData: FileTreeNode[] = [
+  {
+    name: "~/skills",
+    type: "folder",
+    iconType: "folder",
+    children: [
+      {
+        name: "frontend",
+        type: "folder",
+        iconType: "folder",
+        children: [
+          { name: "React.js", type: "file", iconType: "react" },
+          { name: "Next.js", type: "file", iconType: "nextjs" },
+          { name: "TypeScript", type: "file", iconType: "typescript" },
+          { name: "Astro", type: "file", iconType: "astro" },
+        ],
+      },
+      {
+        name: "backend",
+        type: "folder",
+        iconType: "folder",
+      },
+      {
+        name: "devops",
+        type: "folder",
+        iconType: "folder",
+      },
+      {
+        name: "other",
+        type: "folder",
+        iconType: "folder",
+        children: [
+          { name: "Claviers mécaniques", type: "file", iconType: "keyboard" },
+          { name: "Freelance/Consulting", type: "file", iconType: "custom" },
+        ],
+      },
+    ],
+  },
+];
+---
+
+<div class="mono text-sm">
+  {fileTreeData.map(item => <FileTreeItem item={item} level={0} />)}
+</div>
