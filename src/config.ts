@@ -48,4 +48,10 @@ export const SOCIALS: SocialObjects = [
     linkTitle: `Send an email to ${SITE.title}`,
     active: true,
   },
+  {
+    name: "RSS",
+    href: "/rss.xml",
+    linkTitle: `${SITE.title} RSS feed`,
+    active: true,
+  },
 ];

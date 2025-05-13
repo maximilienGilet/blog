@@ -34,45 +34,17 @@ const profilePicture = "/assets/profile.avif";
   <Header />
   <div id="hero">
     <div class="lg:max-w-xl">
-      <h1 class="mono">Maximilien Gilet</h1>
-      <a
-        target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg
-          width="33"
-          height="32"
-          viewBox="0 0 33 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          class="rss-icon"
-        >
-          <path
-            d="M29.8052 15.235H28.2852V12.185H26.7552V10.665H25.2352V9.14499H23.7052V7.61499H22.1852V6.09499H20.6652V4.57499H17.6152V3.04499H13.0452V1.52499H3.90515V4.57499H13.0452V6.09499H17.6152V7.61499H20.6652V9.14499H22.1852V10.665H23.7052V12.185H25.2352V15.235H26.7552V19.805H28.2852V28.955H31.3252V19.805H29.8052V15.235Z"
-          ></path>
-          <path
-            d="M3.90515 7.61499V10.665H11.5152V12.185H14.5652V13.715H17.6152V15.235H19.1352V18.285H20.6652V21.335H22.1852V28.955H25.2352V21.335H23.7052V18.285H22.1852V15.235H20.6652V13.715H19.1352V12.185H17.6152V10.665H14.5652V9.14499H11.5152V7.61499H3.90515Z"
-          ></path>
-          <path
-            d="M3.90515 16.765H9.99515V18.285H13.0452V19.805H14.5652V22.855H16.0952V28.955H19.1352V22.855H17.6152V19.805H16.0952V18.285H14.5652V16.765H13.0452V15.235H9.99515V13.715H3.90515V16.765Z"
-          ></path>
-          <path
-            d="M3.90512 24.375H2.37512V28.955H3.90512V30.475H8.47512V28.955H9.99512V24.375H8.47512V22.855H3.90512V24.375Z"
-          ></path>
-        </svg>
-        <span class="sr-only">RSS Feed</span>
-      </a>
-
+      <h1 class="mono">
+        Maximilien Gilet<span class="blinking-underscore">_</span>
+      </h1>
       <p>
         Développeur fullstack passionné, <strong>je transforme des idées</strong
-        > en <strong>applications web performantes</strong> et <strong
+        >
+        en <strong>applications web performantes</strong> et <strong
           >durables</strong
-        >. Spécialisé en React, TypeScript et Next.js, je partage mon expertise,
-        mes réflexions techniques et mes retours d'expérience sur le
-        développement moderne.
+        >.<br />
+        Spécialisé en React, TypeScript et Next.js, je partage mon expertise, mes
+        réflexions techniques et mes retours d'expérience sur le développement moderne.
         <br />
         <br />
         Bienvenue dans mon univers où code rime avec innovation !
@@ -89,7 +61,7 @@ const profilePicture = "/assets/profile.avif";
     <div class="hidden lg:block">
       <Image
         src={profilePicture}
-        class="shadow-fat rounded-lg border-2 border-skin-line"
+        class="rounded-full border-2 border-skin-line shadow-lg"
         alt="Photo de profil"
         width={300}
         height={300}
@@ -425,6 +397,22 @@ const profilePicture = "/assets/profile.avif";
     }
     .all-posts-btn-wrapper {
       @apply my-8 text-center;
+    }
+
+    .blinking-underscore {
+      display: inline-block;
+      width: 1ch;
+      animation: blink 1s steps(1) infinite;
+    }
+    @keyframes blink {
+      0%,
+      50% {
+        opacity: 0.8;
+      }
+      51%,
+      100% {
+        opacity: 0;
+      }
     }
   </style>
 </Layout>
