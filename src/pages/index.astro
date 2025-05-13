@@ -37,6 +37,10 @@ const profilePicture = "/assets/profile.avif";
       <h1 class="mono">
         Maximilien Gilet<span class="blinking-underscore">_</span>
       </h1>
+      <div class="hero-badges mb-8">
+        <span class="badge badge-dev">Développeur full stack</span>
+        <span class="badge badge-freelance">Freelance disponible</span>
+      </div>
       <p>
         Développeur fullstack passionné, <strong>je transforme des idées</strong
         >
@@ -45,9 +49,6 @@ const profilePicture = "/assets/profile.avif";
         >.<br />
         Spécialisé en React, TypeScript et Next.js, je partage mon expertise, mes
         réflexions techniques et mes retours d'expérience sur le développement moderne.
-        <br />
-        <br />
-        Bienvenue dans mon univers où code rime avec innovation !
       </p>
       {
         // only display if at least one social link is enabled
@@ -366,7 +367,7 @@ const profilePicture = "/assets/profile.avif";
       @apply mx-auto max-w-3xl items-center gap-4 px-4 pb-14 pt-8 lg:max-w-max lg:justify-center;
     }
     #hero h1 {
-      @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+      @apply inline-block text-3xl font-bold sm:my-6 sm:text-5xl;
     }
     #hero .rss-link {
       @apply mb-6;
@@ -413,6 +414,36 @@ const profilePicture = "/assets/profile.avif";
       100% {
         opacity: 0;
       }
+    }
+
+    .hero-badges {
+      @apply flex flex-wrap gap-2;
+    }
+    .badge {
+      @apply rounded-lg;
+      display: inline-block;
+      padding: 0.32em 1.1em;
+      font-size: 1.05em;
+      font-family: inherit;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      background: #f3f3f3;
+      color: #222;
+      border: 1.5px solid #e0e0e0;
+      box-shadow: 0 1px 4px #0001;
+      transition:
+        background 0.15s,
+        color 0.15s;
+    }
+    .badge-dev {
+      background: rgb(var(--color-fill));
+      color: rgb(var(--color-text));
+      border-color: rgb(var(--color-line));
+    }
+    .badge-freelance {
+      background: rgba(var(--color-accent), 0.05);
+      color: rgb(var(--color-accent));
+      border-color: rgb(var(--color-accent));
     }
   </style>
 </Layout>
