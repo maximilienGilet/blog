@@ -41,15 +41,20 @@ const profilePicture = "/assets/profile.avif";
         <span class="badge badge-dev">Développeur full stack</span>
         <span class="badge badge-freelance">Freelance disponible</span>
       </div>
-      <p>
-        Développeur fullstack passionné, <strong>je transforme des idées</strong
-        >
-        en <strong>applications web performantes</strong> et <strong
-          >durables</strong
-        >.<br />
-        Spécialisé en React, TypeScript et Next.js, je partage mon expertise, mes
-        réflexions techniques et mes retours d'expérience sur le développement moderne.
-      </p>
+      <pre
+        class="ascii-tree mono">
+~/skills
+├── frontend/
+│   ├── React.js
+│   ├── Next.js
+│   ├── TypeScript
+│   └── Astro
+├── backend/
+├── devops/
+└── other/
+    ├── Claviers mécaniques
+    └── Freelance/Consulting
+  </pre>
       {
         // only display if at least one social link is enabled
         socialCount > 0 && (
@@ -436,14 +441,28 @@ const profilePicture = "/assets/profile.avif";
         color 0.15s;
     }
     .badge-dev {
-      background: rgb(var(--color-fill));
-      color: rgb(var(--color-text));
-      border-color: rgb(var(--color-line));
+      background: #eaf3ff;
+      color: #007aff;
+      border-color: #007aff;
     }
     .badge-freelance {
-      background: rgba(var(--color-accent), 0.05);
-      color: rgb(var(--color-accent));
-      border-color: rgb(var(--color-accent));
+      background: #f0fff4;
+      color: #2ea96b;
+      border-color: #2ea96b;
+    }
+
+    .ascii-tree {
+      font-size: 1.08em;
+      background: none;
+      color: rgb(var(--color-text-base));
+      margin-bottom: 1.5em;
+      margin-top: 0.5em;
+      padding: 0.7em 0 0.7em 0.2em;
+      line-height: 1.4;
+      border-radius: 0.5em;
+      white-space: pre;
+      overflow-x: auto;
+      box-shadow: none;
     }
   </style>
 </Layout>
